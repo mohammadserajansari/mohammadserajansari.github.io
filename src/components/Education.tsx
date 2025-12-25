@@ -70,7 +70,7 @@ export function Education() {
                         <Calendar className="h-3 w-3" />
                         {edu.duration}
                       </span>
-                      <span className="font-medium text-primary">{edu.score}</span>
+                      {/* <span className="font-medium text-primary">{edu.score}</span> */}
                     </div>
                   </div>
                 </div>
