@@ -41,8 +41,8 @@ export function NeuralMatrix3D() {
   const [fps, setFps] = useState<number>(60);
   const [pulseCount, setPulseCount] = useState<number>(0);
 
-  // Rotation angles & interaction state
-  const rotRef = useRef({ x: 0.2, y: 0.4, vx: 0.003, vy: 0.005 });
+  // Rotation angles & interaction state (tuned for high-speed dynamic sci-fi action)
+  const rotRef = useRef({ x: 0.2, y: 0.4, vx: 0.007, vy: 0.014 });
   const isDraggingRef = useRef(false);
   const lastMouseRef = useRef({ x: 0, y: 0 });
   const mousePosRef = useRef({ x: 0, y: 0 });
@@ -202,17 +202,17 @@ export function NeuralMatrix3D() {
     });
     setPulseCount((prev) => prev + 1);
 
-    // Spawn 8 new high-speed pulse packets across random connected nodes
+    // Spawn 10 new high-speed pulse packets across random connected nodes
     const nodes = nodesRef.current;
     if (nodes.length > 5) {
-      for (let i = 0; i < 8; i++) {
+      for (let i = 0; i < 10; i++) {
         const from = Math.floor(Math.random() * nodes.length);
         const to = (from + Math.floor(Math.random() * 5) + 1) % nodes.length;
         pulsesRef.current.push({
           fromIndex: from,
           toIndex: to,
           progress: 0,
-          speed: 0.02 + Math.random() * 0.03,
+          speed: 0.04 + Math.random() * 0.04,
           color: mode === 'quantum' ? '#10b981' : mode === 'mri' ? '#d946ef' : mode === 'swarm' ? '#f59e0b' : '#00f0ff',
         });
       }
@@ -332,12 +332,12 @@ export function NeuralMatrix3D() {
       ctx.fillStyle = glowGrad;
       ctx.fillRect(0, 0, width, height);
 
-      // Render Gimbal Sci-Fi Rings
+      // Render Gimbal Sci-Fi Rings (faster rotation)
       const ringRadii = [210, 160, 110];
       ringRadii.forEach((r, rIdx) => {
         ctx.save();
         ctx.translate(cx, cy);
-        const ringAngle = time * (0.0004 * (rIdx % 2 === 0 ? 1 : -1)) + rIdx * 0.8;
+        const ringAngle = time * (0.0012 * (rIdx % 2 === 0 ? 1 : -1)) + rIdx * 0.8;
         ctx.rotate(ringAngle);
 
         ctx.beginPath();
@@ -347,8 +347,8 @@ export function NeuralMatrix3D() {
         ctx.setLineDash([4, 12]);
         ctx.stroke();
 
-        // Orbiting Satellite Packet
-        const satAngle = time * 0.001 * (rIdx + 1);
+        // Orbiting Satellite Packet (faster orbital speed)
+        const satAngle = time * 0.0028 * (rIdx + 1);
         const sx = Math.cos(satAngle) * r;
         const sy = Math.sin(satAngle) * (r * 0.45);
         ctx.beginPath();
@@ -405,24 +405,24 @@ export function NeuralMatrix3D() {
         }
       }
 
-      // Randomly spawn pulses between connected nodes
-      if (Math.random() < 0.08 && nodes.length > 5) {
+      // Randomly spawn pulses between connected nodes (higher frequency for dynamic energy)
+      if (Math.random() < 0.2 && nodes.length > 5) {
         const from = Math.floor(Math.random() * nodes.length);
         const to = (from + Math.floor(Math.random() * 4) + 1) % nodes.length;
         pulsesRef.current.push({
           fromIndex: from,
           toIndex: to,
           progress: 0,
-          speed: 0.015 + Math.random() * 0.025,
+          speed: 0.035 + Math.random() * 0.035,
           color: `rgb(${themeColor})`,
         });
       }
 
-      // Render expanding shockwaves
+      // Render expanding shockwaves (faster and snappier)
       for (let i = shockwavesRef.current.length - 1; i >= 0; i--) {
         const sw = shockwavesRef.current[i];
-        sw.radius += 5;
-        sw.alpha -= 0.02;
+        sw.radius += 10;
+        sw.alpha -= 0.035;
         if (sw.alpha <= 0 || sw.radius >= sw.maxRadius) {
           shockwavesRef.current.splice(i, 1);
           continue;
@@ -517,8 +517,8 @@ export function NeuralMatrix3D() {
     const dy = e.clientY - lastMouseRef.current.y;
     lastMouseRef.current = { x: e.clientX, y: e.clientY };
 
-    rotRef.current.y += dx * 0.008;
-    rotRef.current.x += dy * 0.008;
+    rotRef.current.y += dx * 0.014;
+    rotRef.current.x += dy * 0.014;
   };
 
   const onMouseUp = () => {
@@ -539,8 +539,8 @@ export function NeuralMatrix3D() {
     const dy = e.touches[0].clientY - lastMouseRef.current.y;
     lastMouseRef.current = { x: e.touches[0].clientX, y: e.touches[0].clientY };
 
-    rotRef.current.y += dx * 0.01;
-    rotRef.current.x += dy * 0.01;
+    rotRef.current.y += dx * 0.018;
+    rotRef.current.x += dy * 0.018;
   };
 
   const onTouchEnd = () => {

@@ -7,7 +7,6 @@ const education = [
     institution: 'Indraprastha Institute of Information Technology, Delhi (IIIT-D)',
     degree: 'M.Tech in Computational Biology',
     duration: '2022 – 2024',
-    grade: 'CGPA: 7.96 / 10.0',
     location: 'New Delhi, India',
     badge: 'Premier Institute',
     thesis:
@@ -23,9 +22,8 @@ const education = [
     institution: 'Hindustan College of Science and Technology',
     degree: 'B.Tech in Biotechnology',
     duration: '2018 – 2022',
-    grade: 'CGPA: 7.80 / 10.0',
     location: 'Mathura, Uttar Pradesh, India',
-    badge: 'First Class with Distinction',
+    badge: 'Biotechnology Major',
     coursework: [
       'Computational Biology',
       'Biochemistry & Molecular Biology',
@@ -110,7 +108,6 @@ export function Education() {
                         <MapPin className="h-3.5 w-3.5 text-primary" />
                         {edu.location}
                       </span>
-                      <span className="text-emerald-400 font-semibold">{edu.grade}</span>
                     </div>
                   </div>
                 </div>

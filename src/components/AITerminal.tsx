@@ -87,7 +87,7 @@ export function AITerminal() {
               Mohammad Seraj Ansari — AI Solution Engineer @ MGT
             </p>
             <p>
-              AI/ML professional with an <span className="text-primary font-semibold">M.Tech in Computational Biology from IIIT Delhi (CGPA 7.96)</span> and B.Tech in Biotechnology. 
+              AI/ML professional with an <span className="text-primary font-semibold">M.Tech in Computational Biology from IIIT Delhi</span> and B.Tech in Biotechnology. 
               Over 1.5+ years building and deploying end-to-end NLP, Generative AI, and deep learning architectures.
             </p>
             <p>
