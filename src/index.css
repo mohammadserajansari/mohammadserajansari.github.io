@@ -146,4 +146,20 @@
 
   /* Fixed border class */
   .border-border { border-color: hsl(var(--border)); }
+
+  /* Custom Cyberpunk Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: hsl(222 47% 5%);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: hsl(187 86% 42% / 0.4);
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(187 86% 42% / 0.8);
+  }
 }

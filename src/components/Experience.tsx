@@ -1,133 +1,266 @@
-import { Building2, Calendar, MapPin } from 'lucide-react';
+import React from 'react';
+import { Building2, Calendar, MapPin, Briefcase, Sparkles, CheckCircle2 } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
+import { AgentFlowDiagram } from '@/components/AgentFlowDiagram';
 
 const experiences = [
   {
+    company: 'MGT',
+    role: 'AI Solution Engineer',
+    duration: 'Current Role',
+    location: 'India / Remote',
+    type: 'Full-time',
+    isCurrent: true,
+    summary:
+      'Spearheading enterprise AI architecture, deploying agentic workflow swarms, and delivering high-impact GenAI automation solutions.',
+    highlights: [
+      'Architecting and deploying end-to-end Generative AI and multi-agent systems for enterprise client workflows.',
+      'Translating complex domain requirements into robust autonomous agent pipelines using LangGraph, CrewAI, and FastAPI.',
+      'Implementing high-throughput RAG architectures with advanced vector search, re-ranking, and low-latency inference microservices.',
+      'Designing strict deterministic guardrails to ensure production reliability, compliance, and zero-hallucination outcomes.',
+    ],
+    techStack: [
+      'Agentic AI',
+      'CrewAI',
+      'LangGraph',
+      'LangChain',
+      'FastAPI',
+      'AWS Bedrock',
+      'PGVector',
+      'Qdrant',
+      'Docker',
+    ],
+  },
+  {
+    company: 'Freelance AI Engineer / Independent Research',
+    role: 'Independent AI Researcher',
+    duration: 'Nov 2025 – Present',
+    location: 'Remote',
+    type: 'Research & Consulting',
+    summary:
+      'Co-authored manuscript submitted to ACS Journal of Chemical Theory and Computation for quantum-inspired molecular property prediction.',
+    highlights: [
+      'Co-authored research manuscript (ct-2026-00508r): "Quantum-Physics Inspired ML Model for Partition Coefficient Prediction" submitted to Journal of Chemical Theory and Computation (under review).',
+      'Formulated novel methodology uniting quantum chemical descriptors with Graph Neural Networks (GNNs) for accurate molecular solubility.',
+      'Consulting for biotech and AI startups on productionizing LLMs, agentic tools, and computational drug discovery pipelines.',
+    ],
+    techStack: [
+      'PyTorch Geometric',
+      'GNNs',
+      'RDKit',
+      'DeepChem',
+      'Modred',
+      'Quantum Chemistry',
+      'scikit-learn',
+    ],
+  },
+  {
     company: 'Anervea Data Labs Private Limited',
     role: 'AI Developer',
-    duration: 'April 2025 – October 2025',
-    location: 'India',
+    duration: 'Apr 2025 – Oct 2025',
+    location: 'Pune, Maharashtra, India',
     type: 'Full-time',
+    summary:
+      'Engineered clinical trial patient recruitment platform and fine-tuned BioBERT models, cutting trial identification time from months to under 30 minutes.',
     highlights: [
-      'Designed and deployed AI-powered patient recruitment platform for clinical trials, enabling faster and more precise patient identification from claims and EHR data',
-      'Automated protocol ingestion by building NLP pipelines with AWS Textract and Bedrock (Claude Sonnet), extracting trial criteria into standardized formats',
-      'Implemented RAG architecture with PGVector for retrieval of ICD-10, CPT, and LOINC codes, along with demographic eligibility criteria',
-      'Integrated with Komodo Workspace to operationalize patient matching, returning structured cohorts with provider and site-level insights',
-      'Built HIPAA-compliant services on AWS and Snowflake enabling near real-time trial feasibility analysis',
+      'Architected and deployed an AI-powered system that reduced patient identification time from several months to under 30 minutes, automating end-to-end eligibility screening from EHR and claims data at scale.',
+      'Engineered NLP ingestion pipelines using AWS Textract and AWS Bedrock (Claude Sonnet 3.5) to parse protocol inclusion/exclusion criteria into standardized machine-readable schemas.',
+      'Designed and implemented a RAG architecture with PGVector for semantic retrieval of ICD-10, CPT, and LOINC medical codes, slashing manual review effort by ~70%.',
+      'Integrated with Komodo Workspace (HIPAA-compliant healthcare dataset) to operationalize cohort generation surfacing matched HCOs/HCPs without exposing protected patient data.',
+      'Implemented LLM evaluation and monitoring pipelines for RAG workflows using RAGAS metrics (faithfulness, answer relevance, context precision) and LangSmith tracing.',
+      'Fine-tuned BioBERT for clinical-trial NLP classification using PEFT/QLoRA with 4-bit quantization via bitsandbytes; containerized services with Docker and Jenkins CI/CD.',
     ],
-    techStack: ['Python', 'FastAPI', 'AWS EC2', 'AWS S3', 'AWS Textract', 'AWS Bedrock', 'Claude Sonnet', 'PGVector', 'Snowflake'],
+    techStack: [
+      'Python',
+      'AWS Bedrock',
+      'Claude 3.5 Sonnet',
+      'AWS Textract',
+      'PGVector',
+      'RAGAS',
+      'LangSmith',
+      'BioBERT',
+      'PEFT/QLoRA',
+      'Snowflake',
+      'Docker',
+      'Jenkins',
+    ],
   },
   {
     company: 'NeuroCare-eLab',
     role: 'Research Assistant',
-    duration: 'June 2024 – April 2025',
-    location: 'India',
+    duration: 'Jun 2024 – Apr 2025',
+    location: 'New Delhi, India',
     type: 'Research',
+    summary:
+      'Led computational drug discovery research achieving state-of-the-art LogP molecular prediction using Graph Neural Networks.',
     highlights: [
-      'Led advanced AI/ML research in computational drug discovery, driving innovations in LogP prediction and solubility estimation',
-      'Engineered and benchmarked cutting-edge models (GNN, XGBoost, RandomForest) with rigorous 5-fold cross-validation',
-      'Achieved state-of-the-art LogP performance with GNN (R² = 0.959, MAE = 0.115), outperforming traditional ML methods',
-      'Designed end-to-end computational pipelines ensuring robust experimentation that accelerated drug discovery efforts',
+      'Led computational drug discovery research on LogP prediction and molecular solubility estimation, combining classical and quantum descriptors (QM, QMPSA, ΔG).',
+      'Benchmarked GNN, XGBoost, RandomForest, and ExtraTrees with 5-fold cross-validation; achieved state-of-the-art LogP performance with GNN (R² = 0.959, MAE = 0.115, MSE = 0.222), outperforming traditional baselines.',
+      'Designed end-to-end computational pipelines covering data preprocessing, molecular representation learning, and reproducibility.',
     ],
-    techStack: ['Python', 'PyTorch', 'Scikit-learn', 'GNNs', 'Transformers', 'XGBoost', 'Feature Engineering'],
+    techStack: [
+      'Python',
+      'PyTorch',
+      'GNNs',
+      'RDKit',
+      'Modred',
+      'DeepChem',
+      'Feature Engineering',
+      'scikit-learn',
+    ],
+  },
+  {
+    company: 'Indraprastha Institute of Information Technology Delhi (IIIT-D)',
+    role: 'Researcher | M.Tech Thesis',
+    duration: 'Jun 2023 – May 2024',
+    location: 'New Delhi, India',
+    type: 'Academic Research',
+    summary:
+      'Engineered volumetric 3D deep learning models on neuroimaging MRI scans for Alzheimer’s diagnosis, improving accuracy by 64% over 2D models.',
+    highlights: [
+      'Engineered a volumetric 3D deep learning model on .nii MRI files, improving Alzheimer’s diagnostic accuracy by 64% over 2D baselines.',
+      'Developed multi-view YOLOv8n classifiers across axial (71.0%), coronal (80.5%), and sagittal (78.1%) planes, building an ensemble achieving 75% overall accuracy.',
+    ],
+    techStack: ['PyTorch', 'TensorFlow', 'YOLOv8n', 'OpenCV', '3D MRI', 'Medical Imaging'],
   },
 ];
 
 export function Experience() {
   return (
     <section id="experience" className="section-padding relative">
-      {/* Background */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_hsl(187_86%_42%_/_0.05)_0%,_transparent_50%)]" />
+      {/* Ambient background glow */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_hsl(187_86%_42%_/_0.06)_0%,_transparent_60%)] pointer-events-none" />
 
-      <div className="container-custom relative z-10">
-        <div className="max-w-4xl mx-auto">
-          {/* Section Header */}
-          <div className="text-center mb-16">
-            <h2 className="text-sm uppercase tracking-widest text-primary mb-4">Career</h2>
-            <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
-              Work <span className="gradient-text">Experience</span>
-            </h3>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Building AI systems that solve real-world problems in healthcare and biotech.
-            </p>
+      <div className="container-custom relative z-10 space-y-16">
+        {/* Header */}
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-xs font-mono text-primary mb-4">
+            <Briefcase className="h-3.5 w-3.5" />
+            <span>CAREER TRACK RECORD</span>
           </div>
 
-          {/* Timeline */}
-          <div className="relative">
-            {/* Timeline Line */}
-            <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-primary via-primary/50 to-transparent md:-translate-x-1/2" />
+          <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold font-display mb-6">
+            Work Experience & <span className="gradient-text">Research</span>
+          </h3>
 
-            {experiences.map((exp, index) => (
-              <div
-                key={exp.company}
-                className={`relative mb-12 last:mb-0 ${
-                  index % 2 === 0 ? 'md:pr-[50%] md:text-right' : 'md:pl-[50%] md:ml-auto'
-                }`}
-              >
-                {/* Timeline Dot */}
-                <div
-                  className={`absolute top-0 w-4 h-4 rounded-full bg-primary border-4 border-background ${
-                    index % 2 === 0
-                      ? 'left-0 md:left-auto md:right-0 md:translate-x-1/2'
-                      : 'left-0 md:-translate-x-1/2'
-                  } -translate-x-1/2`}
-                />
+          <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
+            Delivering production-grade AI solutions across enterprise consulting, clinical automation, 
+            and computational discovery.
+          </p>
+        </div>
 
-                {/* Content Card */}
+        {/* Live Architecture Visualizer Component */}
+        <AgentFlowDiagram />
+
+        {/* Timeline */}
+        <div className="relative max-w-5xl mx-auto">
+          {/* Vertical Glowing Line */}
+          <div className="absolute left-4 md:left-1/2 top-4 bottom-4 w-px bg-gradient-to-b from-primary via-primary/40 to-transparent -translate-x-1/2" />
+
+          <div className="space-y-12">
+            {experiences.map((exp, index) => {
+              const isEven = index % 2 === 0;
+              return (
                 <div
-                  className={`ml-8 md:ml-0 ${
-                    index % 2 === 0 ? 'md:mr-8' : 'md:ml-8'
+                  key={exp.company + exp.role}
+                  className={`relative flex flex-col md:flex-row gap-8 items-start ${
+                    isEven ? 'md:flex-row-reverse' : ''
                   }`}
                 >
-                  <div className="p-6 rounded-xl bg-card border border-border card-glow">
-                    {/* Header */}
-                    <div className={`mb-4 ${index % 2 === 0 ? 'md:text-right' : ''}`}>
-                      <div className="flex items-center gap-2 flex-wrap mb-2">
-                        <Building2 className="h-4 w-4 text-primary" />
-                        <span className="font-semibold text-lg">{exp.company}</span>
-                        <Badge variant="outline" className="ml-auto md:ml-0">
-                          {exp.type}
-                        </Badge>
-                      </div>
-                      <h4 className="text-xl font-bold gradient-text mb-2">{exp.role}</h4>
-                      <div className="flex items-center gap-4 text-sm text-muted-foreground flex-wrap">
-                        <span className="flex items-center gap-1">
-                          <Calendar className="h-3 w-3" />
-                          {exp.duration}
-                        </span>
-                        <span className="flex items-center gap-1">
-                          <MapPin className="h-3 w-3" />
-                          {exp.location}
-                        </span>
-                      </div>
-                    </div>
+                  {/* Timeline Glowing Node */}
+                  <div className="absolute left-4 md:left-1/2 -translate-x-1/2 top-6 z-20">
+                    <div
+                      className={`w-5 h-5 rounded-full border-4 border-background flex items-center justify-center ${
+                        exp.isCurrent
+                          ? 'bg-emerald-400 ring-4 ring-emerald-400/20 animate-pulse'
+                          : 'bg-primary'
+                      }`}
+                    />
+                  </div>
 
-                    {/* Highlights */}
-                    <ul className={`space-y-2 mb-4 ${index % 2 === 0 ? 'md:text-left' : ''}`}>
-                      {exp.highlights.map((highlight, i) => (
-                        <li key={i} className="text-sm text-muted-foreground flex gap-2">
-                          <span className="text-primary mt-1.5 flex-shrink-0">•</span>
-                          <span>{highlight}</span>
-                        </li>
-                      ))}
-                    </ul>
+                  {/* Spacer for the other half on desktop */}
+                  <div className="hidden md:block md:w-1/2" />
 
-                    {/* Tech Stack */}
-                    <div className={`flex flex-wrap gap-2 ${index % 2 === 0 ? 'md:justify-end' : ''}`}>
-                      {exp.techStack.map((tech) => (
-                        <Badge
-                          key={tech}
-                          variant="secondary"
-                          className="bg-primary/10 text-primary text-xs"
-                        >
-                          {tech}
-                        </Badge>
-                      ))}
+                  {/* Content Card */}
+                  <div className="w-full md:w-1/2 pl-12 md:pl-0">
+                    <div
+                      className={`p-6 sm:p-7 rounded-2xl bg-card border card-glow ${
+                        exp.isCurrent
+                          ? 'border-emerald-500/40 shadow-emerald-500/5'
+                          : 'border-border/80'
+                      } ${isEven ? 'md:mr-8' : 'md:ml-8'}`}
+                    >
+                      {/* Card Header */}
+                      <div className="mb-4">
+                        <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
+                          <div className="flex items-center gap-2">
+                            <Building2 className="h-4 w-4 text-primary" />
+                            <span className="font-bold text-lg text-foreground">
+                              {exp.company}
+                            </span>
+                          </div>
+                          <Badge
+                            variant={exp.isCurrent ? 'default' : 'secondary'}
+                            className={
+                              exp.isCurrent
+                                ? 'bg-emerald-500 text-slate-950 font-mono text-xs font-bold'
+                                : 'font-mono text-xs'
+                            }
+                          >
+                            {exp.type}
+                          </Badge>
+                        </div>
+
+                        <h4 className="text-xl font-bold gradient-text mb-2">
+                          {exp.role}
+                        </h4>
+
+                        <div className="flex flex-wrap items-center gap-4 text-xs font-mono text-muted-foreground">
+                          <span className="flex items-center gap-1.5">
+                            <Calendar className="h-3.5 w-3.5 text-primary" />
+                            {exp.duration}
+                          </span>
+                          <span className="flex items-center gap-1.5">
+                            <MapPin className="h-3.5 w-3.5 text-primary" />
+                            {exp.location}
+                          </span>
+                        </div>
+                      </div>
+
+                      {/* Summary */}
+                      <p className="text-sm font-medium text-foreground/90 mb-4 leading-relaxed">
+                        {exp.summary}
+                      </p>
+
+                      {/* Detailed Bullet Points */}
+                      <ul className="space-y-2 mb-5">
+                        {exp.highlights.map((point, pIdx) => (
+                          <li
+                            key={pIdx}
+                            className="text-xs sm:text-sm text-muted-foreground flex items-start gap-2.5 leading-relaxed"
+                          >
+                            <span className="text-primary mt-1 flex-shrink-0 text-xs">◆</span>
+                            <span>{point}</span>
+                          </li>
+                        ))}
+                      </ul>
+
+                      {/* Tech Stack Pills */}
+                      <div className="flex flex-wrap gap-1.5 pt-2 border-t border-border/50">
+                        {exp.techStack.map((tech) => (
+                          <span
+                            key={tech}
+                            className="px-2.5 py-0.5 rounded text-[11px] font-mono bg-primary/10 text-primary border border-primary/20"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>
