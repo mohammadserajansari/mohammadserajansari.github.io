@@ -62,7 +62,7 @@ export function About() {
             <span className="text-foreground font-semibold">IIIT Delhi</span> (M.Tech in Computational Biology) 
             and hands-on experience building mission-critical AI systems. Currently at{' '}
             <span className="text-primary font-semibold">MGT</span> as an{' '}
-            <span className="text-foreground font-semibold">AI Solution Engineer</span>, I design and deploy 
+            <span className="text-foreground font-semibold">AI Solutions Engineer</span>, I design and deploy 
             high-throughput RAG engines, agentic orchestration swarms, and domain-adapted language models.
           </p>
         </div>

@@ -21,7 +21,7 @@ export function AITerminal() {
             ✔ [KERNEL READY] Seraj AI Neural Interface v2.6 initialized.
           </p>
           <p>
-            Current Assignment: <span className="text-primary font-bold">AI Solution Engineer @ MGT</span>
+            Current Assignment: <span className="text-primary font-bold">AI Solutions Engineer @ MGT</span>
           </p>
           <p>
             Specialization: <span className="text-foreground">Agentic AI Swarms • Production RAG • Quantum-Physics ML</span>
@@ -35,11 +35,13 @@ export function AITerminal() {
   ]);
   const [cmdIndex, setCmdIndex] = useState(-1);
   const [cmdHistoryList, setCmdHistoryList] = useState<string[]>(['help']);
-  const terminalEndRef = useRef<HTMLDivElement | null>(null);
+  const terminalContainerRef = useRef<HTMLDivElement | null>(null);
   const inputRef = useRef<HTMLInputElement | null>(null);
 
   const scrollToBottom = () => {
-    terminalEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    if (terminalContainerRef.current) {
+      terminalContainerRef.current.scrollTop = terminalContainerRef.current.scrollHeight;
+    }
   };
 
   useEffect(() => {
@@ -66,7 +68,7 @@ export function AITerminal() {
             <p className="text-primary font-semibold">AVAILABLE COMMAND CODES:</p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1.5 text-muted-foreground">
               <div><span className="text-emerald-400 font-bold">whoami</span> - Identity & executive summary</div>
-              <div><span className="text-emerald-400 font-bold">mgt</span> - Current AI Solution Engineer role</div>
+              <div><span className="text-emerald-400 font-bold">mgt</span> - Current AI Solutions Engineer role</div>
               <div><span className="text-emerald-400 font-bold">skills</span> - Full AI/ML tech stack matrix</div>
               <div><span className="text-emerald-400 font-bold">experience</span> - Career timeline & achievements</div>
               <div><span className="text-emerald-400 font-bold">projects</span> - Production RAG & AI systems</div>
@@ -84,7 +86,7 @@ export function AITerminal() {
         resultOutput = (
           <div className="space-y-2 text-xs font-mono text-muted-foreground">
             <p className="text-foreground font-semibold text-sm">
-              Mohammad Seraj Ansari — AI Solution Engineer @ MGT
+              Mohammad Seraj — AI Solutions Engineer @ MGT
             </p>
             <p>
               AI/ML professional with an <span className="text-primary font-semibold">M.Tech in Computational Biology from IIIT Delhi</span> and B.Tech in Biotechnology. 
@@ -104,7 +106,7 @@ export function AITerminal() {
           <div className="space-y-2 text-xs font-mono">
             <div className="flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-              <span className="text-emerald-400 font-bold">ACTIVE ROLE: AI Solution Engineer @ MGT</span>
+              <span className="text-emerald-400 font-bold">ACTIVE ROLE: AI Solutions Engineer @ MGT</span>
             </div>
             <p className="text-muted-foreground">
               Architecting production-ready Generative AI solutions, Agentic workflows (CrewAI, LangGraph), 
@@ -157,7 +159,7 @@ export function AITerminal() {
             <p className="text-primary font-bold">CAREER TELEMETRY RECORD:</p>
             <div className="space-y-2.5">
               <div className="border-l-2 border-emerald-400 pl-3">
-                <p className="text-foreground font-semibold">AI Solution Engineer — MGT</p>
+                <p className="text-foreground font-semibold">AI Solutions Engineer — MGT</p>
                 <p className="text-muted-foreground text-[11px]">Present | Enterprise AI & Agentic Architectures</p>
               </div>
               <div className="border-l-2 border-primary pl-3">
@@ -359,7 +361,7 @@ export function AITerminal() {
       </div>
 
       {/* Terminal Output Area */}
-      <div className="p-4 sm:p-5 max-h-[340px] overflow-y-auto space-y-4">
+      <div ref={terminalContainerRef} className="p-4 sm:p-5 max-h-[340px] overflow-y-auto space-y-4">
         {history.map((item) => (
           <div key={item.id} className="space-y-1">
             <div className="flex items-center gap-2 text-xs">
@@ -370,7 +372,6 @@ export function AITerminal() {
             <div className="pl-4">{item.output}</div>
           </div>
         ))}
-        <div ref={terminalEndRef} />
       </div>
 
       {/* Command Input Field */}

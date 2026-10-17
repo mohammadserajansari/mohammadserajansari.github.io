@@ -46,7 +46,7 @@ export function Navbar() {
 
             <div className="hidden lg:flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-[11px] font-mono text-emerald-400">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-              <span>AI Solution Engineer @ MGT</span>
+              <span>AI Solutions Engineer @ MGT</span>
             </div>
           </div>
 
@@ -88,7 +88,7 @@ export function Navbar() {
             <div className="flex flex-col gap-3 font-mono text-sm px-2">
               <div className="flex items-center gap-2 px-3 py-2 rounded-lg bg-primary/10 border border-primary/20 text-xs text-primary mb-2">
                 <Zap className="h-3.5 w-3.5" />
-                <span>AI Solution Engineer @ MGT</span>
+                <span>AI Solutions Engineer @ MGT</span>
               </div>
 
               {navLinks.map((link) => (

@@ -223,23 +223,41 @@ export function NeuralMatrix3D() {
     initNodes(mode);
   }, [mode, initNodes]);
 
-  // Main 3D render loop
+  // Main 3D render loop (Hardware-accelerated 60 FPS, zero CPU shadowBlur, paused when offscreen)
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    let animId: number;
+    let animId: number = 0;
     let lastTime = performance.now();
     let frameCount = 0;
     let fpsLastSample = performance.now();
+    let isVisible = true;
+
+    // Pause rendering when canvas is scrolled off-screen to eliminate any scrolling lag
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        isVisible = entry.isIntersecting;
+        if (isVisible && !animId) {
+          lastTime = performance.now();
+          animId = requestAnimationFrame(render);
+        }
+      },
+      { threshold: 0.05 }
+    );
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
 
     const handleResize = () => {
       const container = containerRef.current;
       if (!container || !canvas) return;
       const rect = container.getBoundingClientRect();
-      const dpr = window.devicePixelRatio || 1;
+      // Cap DPR to 1.5 to keep GPU fill rate ultra-fast on high-res Retina displays
+      const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
       canvas.width = rect.width * dpr;
       canvas.height = rect.height * dpr;
       ctx.scale(dpr, dpr);
@@ -249,6 +267,11 @@ export function NeuralMatrix3D() {
     window.addEventListener('resize', handleResize);
 
     const render = (time: number) => {
+      if (!isVisible) {
+        animId = 0;
+        return;
+      }
+
       const dt = (time - lastTime) / 1000;
       lastTime = time;
 
@@ -285,21 +308,17 @@ export function NeuralMatrix3D() {
 
       // Project nodes to 2D
       const projected = nodes.map((n, idx) => {
-        // Natural subtle floating idle motion
-        const timeOffset = time * 0.0015 + n.pulsePhase;
-        const curX = n.baseX + Math.sin(timeOffset) * 4 + n.vx * 10;
-        const curY = n.baseY + Math.cos(timeOffset * 0.8) * 4 + n.vy * 10;
-        const curZ = n.baseZ + Math.sin(timeOffset * 1.2) * 4 + n.vz * 10;
+        const timeOffset = time * 0.003 + n.pulsePhase;
+        const curX = n.baseX + Math.sin(timeOffset) * 5 + n.vx * 12;
+        const curY = n.baseY + Math.cos(timeOffset * 0.8) * 5 + n.vy * 12;
+        const curZ = n.baseZ + Math.sin(timeOffset * 1.2) * 5 + n.vz * 12;
 
-        // Y-axis rotation
         const x1 = curX * cosY - curZ * sinY;
         const z1 = curZ * cosY + curX * sinY;
 
-        // X-axis rotation
         const y2 = curY * cosX - z1 * sinX;
         const z2 = z1 * cosX + curY * sinX;
 
-        // Perspective scale
         const scale = fov / (distance + z2);
         const px = cx + x1 * scale;
         const py = cy + y2 * scale;
@@ -319,10 +338,9 @@ export function NeuralMatrix3D() {
         };
       });
 
-      // Sort by Z for proper depth rendering
       projected.sort((a, b) => a.z - b.z);
 
-      // Cybernetic Background Glow
+      // Background radial glow
       const glowGrad = ctx.createRadialGradient(cx, cy, 10, cx, cy, 260);
       const themeColor =
         mode === 'quantum' ? '16, 185, 129' : mode === 'mri' ? '217, 70, 239' : mode === 'swarm' ? '245, 158, 11' : '0, 240, 255';
@@ -332,7 +350,7 @@ export function NeuralMatrix3D() {
       ctx.fillStyle = glowGrad;
       ctx.fillRect(0, 0, width, height);
 
-      // Render Gimbal Sci-Fi Rings (faster rotation)
+      // Render Gimbal Sci-Fi Rings
       const ringRadii = [210, 160, 110];
       ringRadii.forEach((r, rIdx) => {
         ctx.save();
@@ -347,16 +365,21 @@ export function NeuralMatrix3D() {
         ctx.setLineDash([4, 12]);
         ctx.stroke();
 
-        // Orbiting Satellite Packet (faster orbital speed)
+        // Orbiting Satellite Packet (fast multi-pass arc, zero shadowBlur)
         const satAngle = time * 0.0028 * (rIdx + 1);
         const sx = Math.cos(satAngle) * r;
         const sy = Math.sin(satAngle) * (r * 0.45);
+
+        ctx.beginPath();
+        ctx.arc(sx, sy, 5, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${themeColor}, 0.25)`;
+        ctx.fill();
+
         ctx.beginPath();
         ctx.arc(sx, sy, 2.5, 0, Math.PI * 2);
         ctx.fillStyle = `rgb(${themeColor})`;
-        ctx.shadowColor = `rgb(${themeColor})`;
-        ctx.shadowBlur = 8;
         ctx.fill();
+
         ctx.restore();
       });
 
@@ -382,7 +405,7 @@ export function NeuralMatrix3D() {
         }
       }
 
-      // Draw and update active Pulse Packets traveling between nodes
+      // Draw and update active Pulse Packets
       for (let i = pulsesRef.current.length - 1; i >= 0; i--) {
         const pulse = pulsesRef.current[i];
         pulse.progress += pulse.speed;
@@ -396,16 +419,20 @@ export function NeuralMatrix3D() {
         if (from && to) {
           const curX = from.x + (to.x - from.x) * pulse.progress;
           const curY = from.y + (to.y - from.y) * pulse.progress;
+
           ctx.beginPath();
-          ctx.arc(curX, curY, 3, 0, Math.PI * 2);
+          ctx.arc(curX, curY, 5, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(${themeColor}, 0.3)`;
+          ctx.fill();
+
+          ctx.beginPath();
+          ctx.arc(curX, curY, 2.5, 0, Math.PI * 2);
           ctx.fillStyle = pulse.color;
-          ctx.shadowColor = pulse.color;
-          ctx.shadowBlur = 10;
           ctx.fill();
         }
       }
 
-      // Randomly spawn pulses between connected nodes (higher frequency for dynamic energy)
+      // Randomly spawn pulses
       if (Math.random() < 0.2 && nodes.length > 5) {
         const from = Math.floor(Math.random() * nodes.length);
         const to = (from + Math.floor(Math.random() * 4) + 1) % nodes.length;
@@ -418,7 +445,7 @@ export function NeuralMatrix3D() {
         });
       }
 
-      // Render expanding shockwaves (faster and snappier)
+      // Render expanding shockwaves (fast vector stroke, zero shadowBlur)
       for (let i = shockwavesRef.current.length - 1; i >= 0; i--) {
         const sw = shockwavesRef.current[i];
         sw.radius += 10;
@@ -430,14 +457,12 @@ export function NeuralMatrix3D() {
 
         ctx.beginPath();
         ctx.arc(cx, cy, sw.radius, 0, Math.PI * 2);
-        ctx.strokeStyle = `rgba(${themeColor}, ${sw.alpha * 0.6})`;
-        ctx.lineWidth = 2.5;
-        ctx.shadowColor = `rgb(${themeColor})`;
-        ctx.shadowBlur = 12;
+        ctx.strokeStyle = `rgba(${themeColor}, ${sw.alpha * 0.7})`;
+        ctx.lineWidth = 2;
         ctx.stroke();
       }
 
-      // Render Nodes with glowing cores
+      // Render Nodes with hardware-accelerated glowing cores
       let foundHover: string | null = null;
       projected.forEach((p) => {
         const pulseGlow = Math.sin(time * 0.004 + p.pulsePhase) * 0.3 + 0.7;
@@ -450,21 +475,20 @@ export function NeuralMatrix3D() {
         }
 
         ctx.save();
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, isHovered ? p.radius * 1.6 : p.radius, 0, Math.PI * 2);
 
-        if (p.type === 'core') {
-          ctx.fillStyle = `rgba(255, 255, 255, ${p.alpha})`;
-          ctx.shadowColor = `rgb(${themeColor})`;
-          ctx.shadowBlur = 18;
-        } else if (isHovered) {
+        // 1. Outer halo arc (fast GPU alpha, replaces slow CPU shadowBlur)
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, isHovered ? p.radius * 2.2 : p.radius * 1.6, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${themeColor}, ${p.alpha * 0.25})`;
+        ctx.fill();
+
+        // 2. Inner crisp node
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, isHovered ? p.radius * 1.3 : p.radius, 0, Math.PI * 2);
+        if (p.type === 'core' || isHovered) {
           ctx.fillStyle = '#ffffff';
-          ctx.shadowColor = `rgb(${themeColor})`;
-          ctx.shadowBlur = 15;
         } else {
           ctx.fillStyle = `rgba(${themeColor}, ${p.alpha * pulseGlow})`;
-          ctx.shadowColor = `rgb(${themeColor})`;
-          ctx.shadowBlur = 8;
         }
         ctx.fill();
 
@@ -476,7 +500,6 @@ export function NeuralMatrix3D() {
           ctx.fillText(p.label, p.x + 8, p.y + 3);
 
           if (isHovered) {
-            // Little targeting reticle around hovered node
             ctx.strokeStyle = `rgb(${themeColor})`;
             ctx.lineWidth = 1.2;
             ctx.strokeRect(p.x - 12, p.y - 12, 24, 24);
@@ -496,6 +519,7 @@ export function NeuralMatrix3D() {
 
     return () => {
       cancelAnimationFrame(animId);
+      observer.disconnect();
       window.removeEventListener('resize', handleResize);
     };
   }, [mode, hoveredNode]);

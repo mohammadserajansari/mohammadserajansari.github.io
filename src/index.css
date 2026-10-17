@@ -91,12 +91,30 @@
   }
 }
 
+/* Universal Text Selection: Always Crisp White, Never Hidden */
+::selection {
+  background-color: hsl(187 86% 42% / 0.45) !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+::-moz-selection {
+  background-color: hsl(187 86% 42% / 0.45) !important;
+  color: #ffffff !important;
+}
+
 @layer components {
   .gradient-text {
     background: var(--gradient-text);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+  }
+
+  .gradient-text::selection {
+    background-color: hsl(187 86% 42% / 0.5) !important;
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
   }
 
   .gradient-border {

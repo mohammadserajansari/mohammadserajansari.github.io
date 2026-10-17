@@ -38,7 +38,7 @@ export function Hero() {
             <span className="hidden md:inline">LOCATION: VARANASI / NEW DELHI / REMOTE</span>
             <div className="flex items-center gap-1.5 px-2.5 py-0.5 rounded bg-primary/10 text-primary border border-primary/20">
               <Zap className="h-3 w-3" />
-              <span>ACTIVE: AI SOLUTION ENGINEER @ MGT</span>
+              <span>ACTIVE: AI SOLUTIONS ENGINEER @ MGT</span>
             </div>
           </div>
         </div>
@@ -51,7 +51,7 @@ export function Hero() {
             <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-secondary/80 border border-primary/30 backdrop-blur-md shadow-lg shadow-primary/5">
               <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping" />
               <span className="text-xs sm:text-sm font-mono font-medium text-foreground">
-                AI Solution Engineer <span className="text-primary font-bold">@ MGT</span>
+                AI Solutions Engineer <span className="text-primary font-bold">@ MGT</span>
               </span>
             </div>
 
@@ -67,7 +67,7 @@ export function Hero() {
                 <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden border-2 border-primary bg-card shadow-xl">
                   <img
                     src="/Mohammad_Seraj.png"
-                    alt="Mohammad Seraj - AI Solution Engineer"
+                    alt="Mohammad Seraj - AI Solutions Engineer"
                     className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                   />
                   {/* Holographic Scanline Overlay */}
@@ -87,7 +87,7 @@ export function Hero() {
                   <span className="gradient-text">Seraj</span>
                 </h1>
                 <p className="text-sm sm:text-base font-mono text-primary font-medium mt-1">
-                  AI Solution Engineer • LLM & Agentic Systems Architect
+                  AI Solutions Engineer • LLM & Agentic Systems Architect
                 </p>
                 <p className="text-xs text-muted-foreground font-mono mt-0.5">
                   M.Tech IIIT-Delhi (Computational Biology) • AIR 133 DBT GAT-B
@@ -123,10 +123,10 @@ export function Hero() {
             {/* CTAs: Resume Download, Projects, Contact */}
             <div className="flex flex-wrap items-center gap-3 pt-2">
               {/* Primary Resume Download Button */}
-              <Button size="lg" className="group font-mono shadow-lg shadow-primary/20" asChild>
-                <a href="/Mohammad_Seraj_Resume.pdf" download="Mohammad_Seraj_Resume.pdf">
-                  <Download className="mr-2 h-4 w-4 group-hover:-translate-y-0.5 transition-transform" />
-                  Download Resume
+              <Button size="lg" className="group font-mono shadow-lg shadow-primary/25 bg-primary text-slate-950 font-bold hover:bg-primary/90" asChild>
+                <a href="/Mohammad_Seraj_Resume.pdf" download="Mohammad_Seraj_Resume.pdf" className="inline-flex items-center gap-2 text-slate-950 font-bold">
+                  <Download className="h-4 w-4 group-hover:-translate-y-0.5 transition-transform text-slate-950 flex-shrink-0" />
+                  <span className="text-slate-950 font-bold">Download Resume</span>
                 </a>
               </Button>
 

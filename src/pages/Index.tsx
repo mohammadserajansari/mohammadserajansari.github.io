@@ -11,7 +11,7 @@ import { Footer } from '@/components/Footer';
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background text-foreground selection:bg-primary/30 selection:text-primary">
+    <div className="min-h-screen bg-background text-foreground selection:bg-primary/45 selection:text-white">
       <Navbar />
 
       <main>

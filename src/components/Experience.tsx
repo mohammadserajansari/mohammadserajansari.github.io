@@ -6,7 +6,7 @@ import { AgentFlowDiagram } from '@/components/AgentFlowDiagram';
 const experiences = [
   {
     company: 'MGT',
-    role: 'AI Solution Engineer',
+    role: 'AI Solutions Engineer',
     duration: 'Current Role',
     location: 'India / Remote',
     type: 'Full-time',

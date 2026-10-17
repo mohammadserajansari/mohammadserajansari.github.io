@@ -22,7 +22,7 @@ export function Footer() {
               Mohammad Seraj
             </div>
             <p className="text-xs font-mono text-muted-foreground">
-              AI Solution Engineer @ MGT • LLM & Agentic Systems Architect
+              AI Solutions Engineer @ MGT • LLM & Agentic Systems Architect
             </p>
           </div>
 
