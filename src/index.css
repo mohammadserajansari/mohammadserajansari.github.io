@@ -155,6 +155,92 @@
   .container-custom {
     @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
   }
+
+  .experience-atmosphere {
+    position: absolute;
+    inset: -18%;
+    pointer-events: none;
+    opacity: 0.55;
+    background:
+      radial-gradient(ellipse at 22% 42%, hsl(187 86% 42% / 0.12), transparent 35%),
+      radial-gradient(ellipse at 78% 58%, hsl(260 60% 55% / 0.09), transparent 34%);
+    animation: experience-drift 24s ease-in-out infinite alternate;
+    will-change: transform;
+  }
+
+  .experience-section::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.025;
+    background-image: linear-gradient(hsl(var(--foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--foreground)) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+
+  .experience-progress { transition: width 550ms cubic-bezier(0.2, 0.75, 0.25, 1); }
+
+  .experience-stops { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0.75rem; }
+  .experience-stop {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.65rem;
+    min-width: 0;
+    padding: 0.9rem 0.75rem;
+    text-align: left;
+    border: 1px solid hsl(var(--border));
+    border-radius: 0.8rem;
+    background: hsl(var(--card) / 0.72);
+    transition: transform 220ms ease, border-color 220ms ease, background-color 220ms ease, box-shadow 220ms ease;
+  }
+  .experience-stop:hover { transform: translateY(-3px); border-color: hsl(var(--primary) / 0.5); }
+  .experience-stop:focus-visible { outline: 2px solid hsl(var(--ring)); outline-offset: 3px; }
+  .experience-stop.is-active { border-color: hsl(var(--primary) / 0.75); background: hsl(var(--primary) / 0.09); box-shadow: 0 10px 32px hsl(var(--primary) / 0.08); }
+  .experience-stop-marker {
+    display: inline-flex;
+    flex: 0 0 2rem;
+    width: 2rem;
+    height: 2rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    border: 1px solid hsl(var(--border));
+    color: hsl(var(--muted-foreground));
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    transition: color 220ms ease, background-color 220ms ease, border-color 220ms ease, transform 220ms ease;
+  }
+  .experience-stop.is-active .experience-stop-marker { color: hsl(var(--primary-foreground)); background: hsl(var(--primary)); border-color: hsl(var(--primary)); transform: scale(1.06); }
+  .experience-stop-copy { display: grid; gap: 0.35rem; min-width: 0; }
+  .experience-stop-role { color: hsl(var(--foreground)); font-size: 0.75rem; line-height: 1.35; font-weight: 600; }
+  .experience-stop-date { color: hsl(var(--muted-foreground)); font-family: var(--font-mono); font-size: 0.625rem; line-height: 1.4; }
+  .experience-panel { animation: experience-enter 420ms cubic-bezier(0.2, 0.75, 0.25, 1) both; box-shadow: 0 24px 80px hsl(0 0% 0% / 0.2); }
+  .experience-contribution > span:last-child { text-align: justify; hyphens: auto; }
+}
+
+@keyframes experience-drift {
+  from { transform: translate3d(-1.5%, -1%, 0) scale(1); }
+  to { transform: translate3d(1.5%, 1%, 0) scale(1.04); }
+}
+
+@keyframes experience-enter {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 767px) {
+  .experience-stops { display: flex; overflow-x: auto; padding: 0.25rem 0.1rem 0.75rem; scroll-snap-type: x mandatory; scrollbar-width: thin; }
+  .experience-stop { flex: 0 0 min(76vw, 250px); scroll-snap-align: start; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 @layer utilities {

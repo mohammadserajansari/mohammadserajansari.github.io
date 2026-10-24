@@ -1,5 +1,5 @@
 import React from 'react';
-import { Sparkles, Cpu, Database, Code2, Award, Zap, Brain, Shield, Terminal as TermIcon } from 'lucide-react';
+import { Sparkles, Cpu, Database, Zap, Brain, Shield, Terminal as TermIcon } from 'lucide-react';
 import { AITerminal } from '@/components/AITerminal';
 
 const metrics = [
@@ -8,7 +8,6 @@ const metrics = [
   { value: '~70%', label: 'Manual Review Effort Reduction', icon: Shield },
   { value: '0.959 R²', label: 'State-of-the-Art Quantum GNN LogP', icon: Sparkles },
   { value: '+64%', label: '3D MRI Diagnostic Accuracy Gain', icon: Cpu },
-  { value: 'AIR 133', label: 'DBT GAT-B National Rank', icon: Award },
 ];
 
 const pillars = [
@@ -41,11 +40,9 @@ const pillars = [
 export function About() {
   return (
     <section id="about" className="section-padding relative">
-      {/* Background Radial Glow */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_hsl(187_86%_42%_/_0.04)_0%,_transparent_70%)] pointer-events-none" />
 
       <div className="container-custom relative z-10 space-y-16">
-        {/* Section Header */}
         <div className="max-w-4xl mx-auto text-center">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-xs font-mono text-primary mb-4">
             <TermIcon className="h-3.5 w-3.5" />
@@ -58,16 +55,14 @@ export function About() {
           </h3>
 
           <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
-            I am an AI/ML Engineer with a research background from{' '}
-            <span className="text-foreground font-semibold">IIIT Delhi</span> (M.Tech in Computational Biology) 
-            and hands-on experience building production AI systems. At{' '}
-            <span className="text-primary font-semibold">MGT</span>, I build agentic workflows, OCR-based document intelligence,
-            high-throughput RAG systems, and domain-adapted language models.
+            Driven by a curiosity for how intelligence can solve complex problems, this journey spans the worlds of AI engineering, scientific research, and computational biology. An M.Tech from{' '}
+            <span className="text-foreground font-semibold">IIIT Delhi</span> laid the foundation for exploring problems at the intersection of biology, mathematics, and machine learning. Today, at{' '}
+            <span className="text-primary font-semibold">MGT</span>, that curiosity translates into building agentic AI systems, intelligent document-processing workflows, and scalable LLM applications. Beyond enterprise AI, research in computational drug discovery, graph neural networks, and biomedical deep learning reflects a broader ambition: to explore what AI can make possible, push beyond conventional approaches, and turn challenging ideas into meaningful solutions.
           </p>
         </div>
 
-        {/* 6 Key Metrics Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+        {/* Five key metrics */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
           {metrics.map((m) => (
             <div
               key={m.label}
@@ -76,9 +71,7 @@ export function About() {
               <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-2 group-hover:scale-110 transition-transform">
                 <m.icon className="h-4 w-4" />
               </div>
-              <div className="text-xl sm:text-2xl font-bold font-mono gradient-text mb-1">
-                {m.value}
-              </div>
+              <div className="text-xl sm:text-2xl font-bold font-mono gradient-text mb-1">{m.value}</div>
               <p className="text-[11px] font-mono text-muted-foreground leading-tight">
                 {m.label}
               </p>

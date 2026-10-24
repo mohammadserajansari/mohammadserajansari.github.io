@@ -1,7 +1,6 @@
-import React from 'react';
-import { Building2, Calendar, MapPin, Briefcase, Sparkles, CheckCircle2 } from 'lucide-react';
+import React, { useState } from 'react';
+import { Building2, Calendar, MapPin, Briefcase } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
-import { AgentFlowDiagram } from '@/components/AgentFlowDiagram';
 
 const experiences = [
   {
@@ -11,8 +10,7 @@ const experiences = [
     location: 'Remote',
     type: 'Full-time',
     isCurrent: true,
-    summary:
-      'Building agentic AI workflows and OCR-based document intelligence services, with LLM observability and deployment support.',
+    summary: 'Building agentic AI workflows and OCR-based document intelligence services, with LLM observability and deployment support.',
     highlights: [
       'Developing agentic AI workflows with LangChain and LangGraph for tool execution, contextual reasoning, and multi-step information processing.',
       'Building OCR-based document intelligence pipelines for scanned-document understanding and structured data extraction.',
@@ -20,17 +18,7 @@ const experiences = [
       'Developing FastAPI services and integrating LiteLLM observability for request monitoring, usage tracking, and performance analysis.',
       'Supporting containerization and cloud deployment workflows with Docker, Azure, Git, and CI/CD.',
     ],
-    techStack: [
-      'Agentic AI',
-      'CrewAI',
-      'LangGraph',
-      'LangChain',
-      'OCR',
-      'LiteLLM',
-      'FastAPI',
-      'Azure',
-      'Docker',
-    ],
+    techStack: ['Agentic AI', 'CrewAI', 'LangGraph', 'LangChain', 'OCR', 'LiteLLM', 'FastAPI', 'Azure', 'Docker'],
   },
   {
     company: 'Freelance AI Engineer / Independent Research',
@@ -38,22 +26,13 @@ const experiences = [
     duration: 'Nov 2025 – June 2026',
     location: 'Remote',
     type: 'Research & Consulting',
-    summary:
-      'Co-authored manuscript submitted to the Journal of Chemical Theory and Computation (ACS Publications) for quantum-inspired molecular property prediction.',
+    summary: 'Co-authored a manuscript submitted to the Journal of Chemical Theory and Computation (ACS Publications) on quantum-inspired molecular property prediction.',
     highlights: [
-      'Co-authored research manuscript (ct-2026-00508r): "Quantum-Physics Inspired ML Model for Partition Coefficient Prediction," submitted to the Journal of Chemical Theory and Computation (ACS Publications; under review).',
-      'Formulated novel methodology uniting quantum chemical descriptors with Graph Neural Networks (GNNs) for accurate molecular solubility.',
-      'Consulting for biotech and AI startups on productionizing LLMs, agentic tools, and computational drug discovery pipelines.',
+      'Co-authored manuscript (ct-2026-00508r), “Quantum-Physics Inspired ML Model for Partition Coefficient Prediction,” submitted to JCTC (ACS Publications; under review).',
+      'Combined quantum chemical descriptors with Graph Neural Networks for molecular property prediction.',
+      'Consulted biotech and AI startups on LLM applications, agentic tools, and computational drug discovery workflows.',
     ],
-    techStack: [
-      'PyTorch Geometric',
-      'GNNs',
-      'RDKit',
-      'DeepChem',
-      'Modred',
-      'Quantum Chemistry',
-      'scikit-learn',
-    ],
+    techStack: ['PyTorch Geometric', 'GNNs', 'RDKit', 'DeepChem', 'Mordred', 'Quantum Chemistry', 'scikit-learn'],
   },
   {
     company: 'Anervea Data Labs Private Limited',
@@ -61,30 +40,15 @@ const experiences = [
     duration: 'Apr 2025 – Oct 2025',
     location: 'Pune, Maharashtra, India',
     type: 'Full-time',
-    summary:
-      'Engineered clinical trial patient recruitment platform and fine-tuned BioBERT models, cutting trial identification time from months to under 30 minutes.',
+    summary: 'Worked on clinical-trial recruitment workflows, protocol parsing, clinical-code retrieval, and biomedical NLP.',
     highlights: [
-      'Architected and deployed an AI-powered system that reduced patient identification time from several months to under 30 minutes, automating end-to-end eligibility screening from EHR and claims data at scale.',
-      'Engineered NLP ingestion pipelines using AWS Textract and AWS Bedrock (Claude Sonnet 3.5) to parse protocol inclusion/exclusion criteria into standardized machine-readable schemas.',
-      'Designed and implemented a RAG architecture with PGVector for semantic retrieval of ICD-10, CPT, and LOINC medical codes, slashing manual review effort by ~70%.',
-      'Integrated with Komodo Workspace (HIPAA-compliant healthcare dataset) to operationalize cohort generation surfacing matched HCOs/HCPs without exposing protected patient data.',
-      'Implemented LLM evaluation and monitoring pipelines for RAG workflows using RAGAS metrics (faithfulness, answer relevance, context precision) and LangSmith tracing.',
-      'Fine-tuned BioBERT for clinical-trial NLP classification using PEFT/QLoRA with 4-bit quantization via bitsandbytes; containerized services with Docker and Jenkins CI/CD.',
+      'Built NLP ingestion pipelines with AWS Textract and AWS Bedrock (Claude 3.5 Sonnet) to structure trial inclusion and exclusion criteria.',
+      'Implemented PGVector retrieval for ICD-10, CPT, and LOINC medical codes to support cohort identification.',
+      'Reduced patient identification time from several months to under 30 minutes and cut manual screening effort by about 70%.',
+      'Integrated with Komodo Workspace and developed RAG evaluation and tracing with RAGAS and LangSmith.',
+      'Fine-tuned BioBERT for clinical-trial NLP classification with PEFT/QLoRA; supported Docker and Jenkins workflows.',
     ],
-    techStack: [
-      'Python',
-      'AWS Bedrock',
-      'Claude 3.5 Sonnet',
-      'AWS Textract',
-      'PGVector',
-      'RAGAS',
-      'LangSmith',
-      'BioBERT',
-      'PEFT/QLoRA',
-      'Snowflake',
-      'Docker',
-      'Jenkins',
-    ],
+    techStack: ['AWS Bedrock', 'AWS Textract', 'PGVector', 'RAGAS', 'LangSmith', 'BioBERT', 'PEFT/QLoRA', 'Docker', 'Jenkins'],
   },
   {
     company: 'NeuroCare-eLab',
@@ -92,23 +56,14 @@ const experiences = [
     duration: 'Jun 2024 – Apr 2025',
     location: 'New Delhi, India',
     type: 'Research',
-    summary:
-      'Led computational drug discovery research achieving state-of-the-art LogP molecular prediction using Graph Neural Networks.',
+    summary: 'Conducted computational drug-discovery research comparing graph neural networks with classical machine-learning baselines for LogP prediction.',
     highlights: [
-      'Led computational drug discovery research on LogP prediction and molecular solubility estimation, combining classical and quantum descriptors (QM, QMPSA, ΔG).',
-      'Benchmarked GNN, XGBoost, RandomForest, and ExtraTrees with 5-fold cross-validation; achieved state-of-the-art LogP performance with GNN (R² = 0.959, MAE = 0.115, MSE = 0.222), outperforming traditional baselines.',
-      'Designed end-to-end computational pipelines covering data preprocessing, molecular representation learning, and reproducibility.',
+      'Explored LogP prediction and molecular solubility using classical and quantum descriptors, including QM, QMPSA, and ΔG.',
+      'Benchmarked GNN, XGBoost, Random Forest, and ExtraTrees with 5-fold cross-validation.',
+      'In 5-fold cross-validation, the GNN achieved R² = 0.959, MAE = 0.115, and MSE = 0.222.',
+      'Worked across preprocessing, molecular representations, and reproducible computational pipelines.',
     ],
-    techStack: [
-      'Python',
-      'PyTorch',
-      'GNNs',
-      'RDKit',
-      'Modred',
-      'DeepChem',
-      'Feature Engineering',
-      'scikit-learn',
-    ],
+    techStack: ['Python', 'PyTorch', 'GNNs', 'RDKit', 'Mordred', 'DeepChem', 'scikit-learn'],
   },
   {
     company: 'Indraprastha Institute of Information Technology Delhi (IIIT-D)',
@@ -116,153 +71,133 @@ const experiences = [
     duration: 'Jun 2023 – May 2024',
     location: 'New Delhi, India',
     type: 'Academic Research',
-    summary:
-      'Engineered volumetric 3D deep learning models on neuroimaging MRI scans for Alzheimer’s diagnosis, improving accuracy by 64% over 2D models.',
+    summary: 'M.Tech thesis work on volumetric MRI modeling and multi-view classification for Alzheimer’s diagnosis.',
     highlights: [
-      'Engineered a volumetric 3D deep learning model on .nii MRI files, improving Alzheimer’s diagnostic accuracy by 64% over 2D baselines.',
-      'Developed multi-view YOLOv8n classifiers across axial (71.0%), coronal (80.5%), and sagittal (78.1%) planes, building an ensemble achieving 75% overall accuracy.',
+      'Developed a volumetric deep-learning workflow for .nii MRI data and compared it with 2D slice baselines.',
+      'Built multi-view YOLOv8n classifiers using axial, coronal, and sagittal views.',
+      'Improved diagnostic accuracy by 64% over 2D slice baselines; the multi-view ensemble achieved 75% accuracy.',
     ],
     techStack: ['PyTorch', 'TensorFlow', 'YOLOv8n', 'OpenCV', '3D MRI', 'Medical Imaging'],
   },
 ];
 
 export function Experience() {
-  return (
-    <section id="experience" className="section-padding relative">
-      {/* Ambient background glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_hsl(187_86%_42%_/_0.06)_0%,_transparent_60%)] pointer-events-none" />
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const selected = experiences[selectedIndex];
 
-      <div className="container-custom relative z-10 space-y-16">
-        {/* Header */}
-        <div className="max-w-4xl mx-auto text-center">
+  const selectExperience = (index: number) => {
+    setSelectedIndex(index);
+  };
+
+  const handleTabKeyDown = (event: React.KeyboardEvent<HTMLButtonElement>) => {
+    let nextIndex = selectedIndex;
+    if (event.key === 'ArrowRight') nextIndex = (selectedIndex + 1) % experiences.length;
+    else if (event.key === 'ArrowLeft') nextIndex = (selectedIndex - 1 + experiences.length) % experiences.length;
+    else if (event.key === 'Home') nextIndex = 0;
+    else if (event.key === 'End') nextIndex = experiences.length - 1;
+    else return;
+    event.preventDefault();
+    selectExperience(nextIndex);
+    document.getElementById(`experience-tab-${nextIndex}`)?.focus();
+  };
+
+  return (
+    <section id="experience" className="section-padding experience-section relative overflow-hidden">
+      <div className="experience-atmosphere" aria-hidden="true" />
+      <div className="container-custom relative z-10 space-y-10">
+        <header className="max-w-3xl mx-auto text-center">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-xs font-mono text-primary mb-4">
-            <Briefcase className="h-3.5 w-3.5" />
-            <span>CAREER TRACK RECORD</span>
+            <Briefcase className="h-3.5 w-3.5" aria-hidden="true" /> CAREER & RESEARCH
+          </div>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold font-display mb-5">
+            Experience in <span className="gradient-text">AI and research</span>
+          </h2>
+          <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
+            Select a point in the timeline to explore the work, methods, and tools from each role.
+          </p>
+        </header>
+
+        <div className="max-w-6xl mx-auto">
+          <div className="relative mb-5 h-px bg-border" aria-hidden="true">
+            <div className="experience-progress h-full bg-primary" style={{ width: `${((selectedIndex + 1) / experiences.length) * 100}%` }} />
           </div>
 
-          <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold font-display mb-6">
-            Work Experience & <span className="gradient-text">Research</span>
-          </h3>
-
-          <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
-            Delivering production-grade AI solutions across enterprise consulting, clinical automation, 
-            and computational discovery.
-          </p>
-        </div>
-
-        {/* Live Architecture Visualizer Component */}
-        <AgentFlowDiagram />
-
-        {/* Timeline */}
-        <div className="relative max-w-5xl mx-auto">
-          {/* Vertical Glowing Line */}
-          <div className="absolute left-4 md:left-1/2 top-4 bottom-4 w-px bg-gradient-to-b from-primary via-primary/40 to-transparent -translate-x-1/2" />
-
-          <div className="space-y-12">
-            {experiences.map((exp, index) => {
-              const isEven = index % 2 === 0;
+          <div className="experience-stops" role="tablist" aria-label="Career and research timeline">
+            {experiences.map((experience, index) => {
+              const active = selectedIndex === index;
               return (
-                <div
-                  key={exp.company + exp.role}
-                  className={`relative flex flex-col md:flex-row gap-8 items-start ${
-                    isEven ? 'md:flex-row-reverse' : ''
-                  }`}
+                <button
+                  key={experience.company}
+                  id={`experience-tab-${index}`}
+                  type="button"
+                  role="tab"
+                  aria-selected={active}
+                  aria-controls="experience-panel"
+                  tabIndex={active ? 0 : -1}
+                  onClick={() => selectExperience(index)}
+                  onKeyDown={handleTabKeyDown}
+                  className={`experience-stop ${active ? 'is-active' : ''}`}
                 >
-                  {/* Timeline Glowing Node */}
-                  <div className="absolute left-4 md:left-1/2 -translate-x-1/2 top-6 z-20">
-                    <div
-                      className={`w-5 h-5 rounded-full border-4 border-background flex items-center justify-center ${
-                        exp.isCurrent
-                          ? 'bg-emerald-400 ring-4 ring-emerald-400/20 animate-pulse'
-                          : 'bg-primary'
-                      }`}
-                    />
-                  </div>
-
-                  {/* Spacer for the other half on desktop */}
-                  <div className="hidden md:block md:w-1/2" />
-
-                  {/* Content Card */}
-                  <div className="w-full md:w-1/2 pl-12 md:pl-0">
-                    <div
-                      className={`p-6 sm:p-7 rounded-2xl bg-card border card-glow ${
-                        exp.isCurrent
-                          ? 'border-emerald-500/40 shadow-emerald-500/5'
-                          : 'border-border/80'
-                      } ${isEven ? 'md:mr-8' : 'md:ml-8'}`}
-                    >
-                      {/* Card Header */}
-                      <div className="mb-4">
-                        <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
-                          <div className="flex items-center gap-2">
-                            <Building2 className="h-4 w-4 text-primary" />
-                            <span className="font-bold text-lg text-foreground">
-                              {exp.company}
-                            </span>
-                          </div>
-                          <Badge
-                            variant={exp.isCurrent ? 'default' : 'secondary'}
-                            className={
-                              exp.isCurrent
-                                ? 'bg-emerald-500 text-slate-950 font-mono text-xs font-bold'
-                                : 'font-mono text-xs'
-                            }
-                          >
-                            {exp.type}
-                          </Badge>
-                        </div>
-
-                        <h4 className="text-xl font-bold gradient-text mb-2">
-                          {exp.role}
-                        </h4>
-
-                        <div className="flex flex-wrap items-center gap-4 text-xs font-mono text-muted-foreground">
-                          <span className="flex items-center gap-1.5">
-                            <Calendar className="h-3.5 w-3.5 text-primary" />
-                            {exp.duration}
-                          </span>
-                          <span className="flex items-center gap-1.5">
-                            <MapPin className="h-3.5 w-3.5 text-primary" />
-                            {exp.location}
-                          </span>
-                        </div>
-                      </div>
-
-                      {/* Summary */}
-                      <p className="text-sm font-medium text-foreground/90 mb-4 leading-relaxed">
-                        {exp.summary}
-                      </p>
-
-                      {/* Detailed Bullet Points */}
-                      <ul className="space-y-2 mb-5">
-                        {exp.highlights.map((point, pIdx) => (
-                          <li
-                            key={pIdx}
-                            className="text-xs sm:text-sm text-muted-foreground flex items-start gap-2.5 leading-relaxed"
-                          >
-                            <span className="text-primary mt-1 flex-shrink-0 text-xs">◆</span>
-                            <span>{point}</span>
-                          </li>
-                        ))}
-                      </ul>
-
-                      {/* Tech Stack Pills */}
-                      <div className="flex flex-wrap gap-1.5 pt-2 border-t border-border/50">
-                        {exp.techStack.map((tech) => (
-                          <span
-                            key={tech}
-                            className="px-2.5 py-0.5 rounded text-[11px] font-mono bg-primary/10 text-primary border border-primary/20"
-                          >
-                            {tech}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                  <span className="experience-stop-marker" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+                  <span className="experience-stop-copy">
+                    <span className="experience-stop-role">{experience.role}</span>
+                    <span className="experience-stop-date">{experience.duration}</span>
+                  </span>
+                </button>
               );
             })}
           </div>
+
+          <article
+            key={selected.company}
+            id="experience-panel"
+            role="tabpanel"
+            aria-labelledby={`experience-tab-${selectedIndex}`}
+            aria-live="polite"
+            aria-label={`${selected.role} at ${selected.company}`}
+            className="experience-panel mt-6 rounded-2xl border border-border/80 bg-card/90 p-5 sm:p-8 lg:p-10"
+          >
+            <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-8 lg:gap-12">
+              <div>
+                <div className="flex flex-wrap items-center gap-2 mb-5">
+                  <Badge variant="secondary" className="font-mono text-xs">{selected.type}</Badge>
+                  {selected.isCurrent && <Badge className="bg-emerald-500 text-slate-950 font-mono text-xs">Current</Badge>}
+                </div>
+                <div className="flex items-start gap-3 mb-3">
+                  <span className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-primary/20 bg-primary/10 text-primary">
+                    <Building2 className="h-5 w-5" aria-hidden="true" />
+                  </span>
+                  <div>
+                    <h3 className="text-2xl sm:text-3xl font-bold font-display leading-tight">{selected.role}</h3>
+                    <p className="mt-1 text-primary font-medium">{selected.company}</p>
+                  </div>
+                </div>
+                <p className="text-sm sm:text-base text-muted-foreground leading-relaxed mt-5">{selected.summary}</p>
+                <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-xs font-mono text-muted-foreground">
+                  <span className="inline-flex items-center gap-1.5"><Calendar className="h-3.5 w-3.5 text-primary" aria-hidden="true" />{selected.duration}</span>
+                  <span className="inline-flex items-center gap-1.5"><MapPin className="h-3.5 w-3.5 text-primary" aria-hidden="true" />{selected.location}</span>
+                </div>
+              </div>
+
+              <div>
+                <h4 className="text-sm font-semibold font-mono uppercase tracking-wider text-foreground/90 mb-4">Selected contributions</h4>
+                <ul className="space-y-3">
+                  {selected.highlights.map((highlight) => (
+                    <li key={highlight} className="experience-contribution flex items-start gap-3 text-sm text-muted-foreground leading-relaxed">
+                      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" aria-hidden="true" />
+                      <span>{highlight}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            <div className="mt-8 flex flex-wrap gap-2 border-t border-border/70 pt-5" aria-label="Technologies used">
+              {selected.techStack.map((technology) => (
+                <span key={technology} className="rounded-md border border-primary/15 bg-primary/5 px-2.5 py-1 text-[11px] font-mono text-foreground/80">{technology}</span>
+              ))}
+            </div>
+          </article>
         </div>
       </div>
     </section>
