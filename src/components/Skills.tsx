@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { Cpu, Terminal, Database, Cloud, Brain, Wrench, Sparkles, Layers, CheckCircle2 } from 'lucide-react';
-import { Badge } from '@/components/ui/badge';
+import { Cpu, Database, Cloud, Brain, Wrench, Sparkles, Layers } from 'lucide-react';
 
 const skillCategories = [
   {
@@ -9,14 +8,14 @@ const skillCategories = [
     icon: Cpu,
     color: 'from-cyan-500/20 to-blue-500/20',
     skills: [
-      { name: 'LangChain & LangGraph', level: 'Expert' },
-      { name: 'CrewAI Multi-Agent Swarms', level: 'Expert' },
-      { name: 'AWS Bedrock (Claude 3.5 Sonnet)', level: 'Expert' },
-      { name: 'Llama 3.3 & Open Source LLMs', level: 'Advanced' },
-      { name: 'PEFT / QLoRA 4-bit Quantization', level: 'Advanced' },
-      { name: 'Prompt Engineering & Few-Shot', level: 'Expert' },
-      { name: 'Deterministic Tool Calling & Memory', level: 'Expert' },
-      { name: 'RAGAS & LangSmith Evaluation', level: 'Advanced' },
+      { name: 'LangChain & LangGraph' },
+      { name: 'CrewAI Multi-Agent Swarms' },
+      { name: 'AWS Bedrock (Claude 3.5 Sonnet)' },
+      { name: 'Llama 3.3 & Open Source LLMs' },
+      { name: 'PEFT / QLoRA 4-bit Quantization' },
+      { name: 'Prompt Engineering & Few-Shot' },
+      { name: 'Deterministic Tool Calling & Memory' },
+      { name: 'RAGAS & LangSmith Evaluation' },
     ],
   },
   {
@@ -25,14 +24,14 @@ const skillCategories = [
     icon: Database,
     color: 'from-emerald-500/20 to-teal-500/20',
     skills: [
-      { name: 'PGVector (PostgreSQL)', level: 'Expert' },
-      { name: 'Qdrant Vector Database', level: 'Advanced' },
-      { name: 'FAISS Semantic Search', level: 'Advanced' },
-      { name: 'Snowflake Data Cloud', level: 'Advanced' },
-      { name: 'Hugging Face Embeddings', level: 'Expert' },
-      { name: 'Hybrid Dense/Sparse Retrieval', level: 'Advanced' },
-      { name: 'Reciprocal Rank Fusion (RRF)', level: 'Advanced' },
-      { name: 'SQL & Database Indexing', level: 'Expert' },
+      { name: 'PGVector (PostgreSQL)' },
+      { name: 'Qdrant Vector Database' },
+      { name: 'FAISS Semantic Search' },
+      { name: 'Snowflake Data Cloud' },
+      { name: 'Hugging Face Embeddings' },
+      { name: 'Hybrid Dense/Sparse Retrieval' },
+      { name: 'Reciprocal Rank Fusion (RRF)' },
+      { name: 'SQL & Database Indexing' },
     ],
   },
   {
@@ -41,14 +40,14 @@ const skillCategories = [
     icon: Brain,
     color: 'from-purple-500/20 to-indigo-500/20',
     skills: [
-      { name: 'BioBERT Clinical NLP', level: 'Advanced' },
-      { name: 'PyTorch & PyTorch Geometric', level: 'Expert' },
-      { name: 'Graph Neural Networks (GNNs)', level: 'Advanced' },
-      { name: 'Hugging Face Transformers', level: 'Expert' },
-      { name: '3D MRI Volumetric Vision (.nii)', level: 'Advanced' },
-      { name: 'YOLOv8n Multi-view Classification', level: 'Advanced' },
-      { name: 'spaCy & NLTK Text Processing', level: 'Advanced' },
-      { name: 'TensorFlow & Keras', level: 'Proficient' },
+      { name: 'BioBERT Clinical NLP' },
+      { name: 'PyTorch & PyTorch Geometric' },
+      { name: 'Graph Neural Networks (GNNs)' },
+      { name: 'Hugging Face Transformers' },
+      { name: '3D MRI Volumetric Vision (.nii)' },
+      { name: 'YOLOv8n Multi-view Classification' },
+      { name: 'spaCy & NLTK Text Processing' },
+      { name: 'TensorFlow & Keras' },
     ],
   },
   {
@@ -57,14 +56,14 @@ const skillCategories = [
     icon: Cloud,
     color: 'from-amber-500/20 to-orange-500/20',
     skills: [
-      { name: 'FastAPI High-Speed Microservices', level: 'Expert' },
-      { name: 'AWS (EC2, S3, Textract, Bedrock)', level: 'Advanced' },
-      { name: 'Docker Containerization', level: 'Advanced' },
-      { name: 'CI/CD Pipelines (Jenkins, GitHub)', level: 'Advanced' },
-      { name: 'CUDA & GPU Acceleration', level: 'Advanced' },
-      { name: 'HIPAA-Compliant AI Services', level: 'Advanced' },
-      { name: 'Async Stream Handling (TTS/STT)', level: 'Advanced' },
-      { name: 'MLflow & Model Tracking', level: 'Proficient' },
+      { name: 'FastAPI High-Speed Microservices' },
+      { name: 'AWS (EC2, S3, Textract, Bedrock)' },
+      { name: 'Docker Containerization' },
+      { name: 'CI/CD Pipelines (Jenkins, GitHub)' },
+      { name: 'CUDA & GPU Acceleration' },
+      { name: 'HIPAA-Compliant AI Services' },
+      { name: 'Async Stream Handling (TTS/STT)' },
+      { name: 'MLflow & Model Tracking' },
     ],
   },
   {
@@ -73,14 +72,14 @@ const skillCategories = [
     icon: Sparkles,
     color: 'from-pink-500/20 to-rose-500/20',
     skills: [
-      { name: 'RDKit Cheminformatics', level: 'Expert' },
-      { name: 'DeepChem Drug Discovery', level: 'Advanced' },
-      { name: 'Modred Molecular Descriptors', level: 'Advanced' },
-      { name: 'Quantum Descriptors (QM, QMPSA)', level: 'Advanced' },
-      { name: 'LogP & Solubility Prediction', level: 'Expert' },
-      { name: 'EHR & Clinical Claims Ingestion', level: 'Advanced' },
-      { name: 'Komodo Healthcare Workspace', level: 'Advanced' },
-      { name: 'ICD-10, CPT, LOINC Standards', level: 'Advanced' },
+      { name: 'RDKit Cheminformatics' },
+      { name: 'DeepChem Drug Discovery' },
+      { name: 'Modred Molecular Descriptors' },
+      { name: 'Quantum Descriptors (QM, QMPSA)' },
+      { name: 'LogP & Solubility Prediction' },
+      { name: 'EHR & Clinical Claims Ingestion' },
+      { name: 'Komodo Healthcare Workspace' },
+      { name: 'ICD-10, CPT, LOINC Standards' },
     ],
   },
   {
@@ -89,14 +88,14 @@ const skillCategories = [
     icon: Wrench,
     color: 'from-blue-500/20 to-cyan-500/20',
     skills: [
-      { name: 'Python (3.9 - 3.12+)', level: 'Expert' },
-      { name: 'SQL (PostgreSQL, MySQL)', level: 'Advanced' },
-      { name: 'Git & GitHub Collaboration', level: 'Expert' },
-      { name: 'Linux / Bash Scripting', level: 'Advanced' },
-      { name: 'VS Code & PyCharm', level: 'Expert' },
-      { name: 'Google Colab Pro & Jupyter', level: 'Expert' },
-      { name: 'NumPy, Pandas & Scikit-Learn', level: 'Expert' },
-      { name: 'Streamlit Rapid Prototyping', level: 'Advanced' },
+      { name: 'Python (3.9 - 3.12+)' },
+      { name: 'SQL (PostgreSQL, MySQL)' },
+      { name: 'Git & GitHub Collaboration' },
+      { name: 'Linux / Bash Scripting' },
+      { name: 'VS Code & PyCharm' },
+      { name: 'Google Colab Pro & Jupyter' },
+      { name: 'NumPy, Pandas & Scikit-Learn' },
+      { name: 'Streamlit Rapid Prototyping' },
     ],
   },
 ];
@@ -181,22 +180,11 @@ export function Skills() {
                   {cat.skills.map((skill) => (
                     <div
                       key={skill.name}
-                      className="p-2 rounded-lg bg-secondary/40 border border-border/50 flex items-center justify-between hover:border-primary/40 transition-colors"
+                      className="p-2 rounded-lg bg-secondary/40 border border-border/50 flex items-center hover:border-primary/40 transition-colors"
                     >
                       <span className="text-xs font-mono text-foreground flex items-center gap-2">
                         <span className="w-1.5 h-1.5 rounded-full bg-primary" />
                         {skill.name}
-                      </span>
-                      <span
-                        className={`text-[10px] font-mono px-2 py-0.5 rounded ${
-                          skill.level === 'Expert'
-                            ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20'
-                            : skill.level === 'Advanced'
-                            ? 'bg-primary/10 text-primary border border-primary/20'
-                            : 'bg-secondary text-muted-foreground'
-                        }`}
-                      >
-                        {skill.level}
                       </span>
                     </div>
                   ))}
