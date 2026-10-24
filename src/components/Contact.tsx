@@ -16,7 +16,7 @@ const contactInfo = [
   {
     icon: Phone,
     label: 'Direct Line',
-    value: '+91 9628104350',
+    value: '+91- 9628104350',
     href: 'tel:+919628104350',
     copyable: true,
   },
@@ -37,7 +37,7 @@ const contactInfo = [
   {
     icon: MapPin,
     label: 'Base Station',
-    value: 'Varanasi, UP, India',
+    value: 'Varanasi, Uttar Pradesh, India',
     copyable: false,
   },
 ];

@@ -88,12 +88,11 @@ export function Hero() {
             </div>
 
             {/* Mission Statement */}
-            <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
-              Engineering high-impact <span className="text-foreground font-medium">Agentic Workflows</span>,{' '}
-              <span className="text-foreground font-medium">Enterprise RAG</span>, and{' '}
-              <span className="text-foreground font-medium">Quantum-Inspired Graph Neural Networks</span>. 
-              Currently building agentic AI and document intelligence systems at <span className="text-primary font-semibold">MGT</span>,
-              translating LLM research and deep learning into production-ready services.
+            <p className="text-base sm:text-lg text-muted-foreground leading-relaxed text-left">
+              Building agentic AI workflows, enterprise RAG systems, and intelligent document-processing pipelines at{' '}
+              <span className="text-primary font-semibold">MGT</span>. Research interests span computational drug discovery,
+              quantum-inspired graph neural networks, and biomedical deep learning—bringing together production AI engineering
+              and scientific research to solve complex, real-world problems.
             </p>
 
             {/* Quick Impact Tags */}
@@ -115,10 +114,10 @@ export function Hero() {
             {/* CTAs: Resume Download, Projects, Contact */}
             <div className="flex flex-wrap items-center gap-3 pt-2">
               {/* Primary Resume Download Button */}
-              <Button size="lg" className="group font-mono shadow-lg shadow-primary/25 bg-primary text-slate-950 font-bold hover:bg-primary/90" asChild>
-                <a href="/Mohammad_Seraj_Resume.pdf" download="Mohammad_Seraj_Resume.pdf" className="inline-flex items-center gap-2 text-slate-950 font-bold">
-                  <Download className="h-4 w-4 group-hover:-translate-y-0.5 transition-transform text-slate-950 flex-shrink-0" />
-                  <span className="text-slate-950 font-bold">Download Resume</span>
+              <Button variant="outline" size="lg" className="group font-mono border-primary/30 hover:border-primary" asChild>
+                <a href="/Mohammad_Seraj_Resume.pdf" download="Mohammad_Seraj_Resume.pdf" className="inline-flex items-center gap-2">
+                  <Download className="h-4 w-4 group-hover:-translate-y-0.5 transition-transform flex-shrink-0" />
+                  <span>Download Resume</span>
                 </a>
               </Button>
 
@@ -129,10 +128,10 @@ export function Hero() {
                 </a>
               </Button>
 
-              <Button variant="ghost" size="lg" className="font-mono text-muted-foreground hover:text-foreground" asChild>
+              <Button variant="outline" size="lg" className="group font-mono border-primary/30 hover:border-primary" asChild>
                 <a href="#contact">
                   <Mail className="mr-2 h-4 w-4" />
-                  Initiate Comms
+                  Initiate Connection
                 </a>
               </Button>
             </div>
@@ -169,14 +168,14 @@ export function Hero() {
 
               <a
                 href="tel:+919628104350"
-                title="Direct Phone (+91 9628104350)"
+                title="Direct Phone (+91- 9628104350)"
                 className="p-2.5 rounded-xl bg-secondary/60 border border-border hover:border-primary hover:bg-primary/10 hover:text-primary transition-all duration-300"
               >
                 <Phone className="h-5 w-5" />
               </a>
 
               <div className="text-xs font-mono text-muted-foreground pl-2 border-l border-border">
-                <span>+91 9628104350</span>
+                <span>+91- 9628104350</span>
               </div>
             </div>
           </div>

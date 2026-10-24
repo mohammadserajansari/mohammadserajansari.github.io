@@ -55,7 +55,7 @@ export function Footer() {
             </a>
             <a
               href="tel:+919628104350"
-              title="Phone (+91 9628104350)"
+              title="Phone (+91- 9628104350)"
               className="p-2.5 rounded-xl bg-secondary/80 border border-border hover:border-primary hover:bg-primary/10 hover:text-primary transition-all duration-300"
             >
               <Phone className="h-4 w-4" />

@@ -257,10 +257,10 @@ export function AITerminal() {
             <p className="text-primary font-bold">COMMUNICATION CHANNELS:</p>
             <div className="space-y-1 text-muted-foreground">
               <p>Email: <a href="mailto:mail.serajansari@gmail.com" className="text-foreground hover:text-primary underline">mail.serajansari@gmail.com</a></p>
-              <p>Phone: <a href="tel:+919628104350" className="text-foreground hover:text-primary underline">+91 9628104350</a></p>
+              <p>Phone: <a href="tel:+919628104350" className="text-foreground hover:text-primary underline">+91- 9628104350</a></p>
               <p>LinkedIn: <a href="https://www.linkedin.com/in/ansariserajmd/" target="_blank" rel="noreferrer" className="text-foreground hover:text-primary underline">linkedin.com/in/ansariserajmd</a></p>
               <p>GitHub: <a href="https://github.com/mohammadserajansari" target="_blank" rel="noreferrer" className="text-foreground hover:text-primary underline">github.com/mohammadserajansari</a></p>
-              <p>Location: <span className="text-foreground">Varanasi, UP, India</span></p>
+              <p>Location: <span className="text-foreground">Varanasi, Uttar Pradesh, India</span></p>
             </div>
           </div>
         );
@@ -329,7 +329,7 @@ export function AITerminal() {
           </div>
           <span className="text-xs text-muted-foreground ml-2 font-mono flex items-center gap-1.5">
             <Terminal className="h-3.5 w-3.5 text-primary" />
-            seraj@mgt-ai-core:~$
+            seraj@portfolio:~$
           </span>
         </div>
 
