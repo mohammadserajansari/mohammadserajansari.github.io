@@ -21,7 +21,7 @@ export function AITerminal() {
             ✔ [KERNEL READY] Seraj AI Neural Interface v2.6 initialized.
           </p>
           <p>
-            Current Assignment: <span className="text-primary font-bold">AI Solutions Engineer @ MGT</span>
+            Current Focus: <span className="text-primary font-bold">Agentic AI & Document Intelligence at MGT</span>
           </p>
           <p>
             Specialization: <span className="text-foreground">Agentic AI Swarms • Production RAG • Quantum-Physics ML</span>
@@ -68,7 +68,7 @@ export function AITerminal() {
             <p className="text-primary font-semibold">AVAILABLE COMMAND CODES:</p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1.5 text-muted-foreground">
               <div><span className="text-emerald-400 font-bold">whoami</span> - Identity & executive summary</div>
-              <div><span className="text-emerald-400 font-bold">mgt</span> - Current AI Solutions Engineer role</div>
+              <div><span className="text-emerald-400 font-bold">mgt</span> - Current work and focus</div>
               <div><span className="text-emerald-400 font-bold">skills</span> - Full AI/ML tech stack matrix</div>
               <div><span className="text-emerald-400 font-bold">experience</span> - Career timeline & achievements</div>
               <div><span className="text-emerald-400 font-bold">projects</span> - Production RAG & AI systems</div>
@@ -86,7 +86,7 @@ export function AITerminal() {
         resultOutput = (
           <div className="space-y-2 text-xs font-mono text-muted-foreground">
             <p className="text-foreground font-semibold text-sm">
-              Mohammad Seraj — AI Solutions Engineer @ MGT
+              Mohammad Seraj — AI/ML Engineer & Applied AI Researcher
             </p>
             <p>
               AI/ML professional with an <span className="text-primary font-semibold">M.Tech in Computational Biology from IIIT Delhi</span> and B.Tech in Biotechnology. 
@@ -106,7 +106,7 @@ export function AITerminal() {
           <div className="space-y-2 text-xs font-mono">
             <div className="flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-              <span className="text-emerald-400 font-bold">ACTIVE ROLE: AI Solutions Engineer @ MGT</span>
+              <span className="text-emerald-400 font-bold">MGT // AGENTIC AI & DOCUMENT INTELLIGENCE</span>
             </div>
             <p className="text-muted-foreground">
               Architecting production-ready Generative AI solutions, Agentic workflows (CrewAI, LangGraph), 
@@ -159,12 +159,12 @@ export function AITerminal() {
             <p className="text-primary font-bold">CAREER TELEMETRY RECORD:</p>
             <div className="space-y-2.5">
               <div className="border-l-2 border-emerald-400 pl-3">
-                <p className="text-foreground font-semibold">AI Solutions Engineer — MGT</p>
+                <p className="text-foreground font-semibold">MGT — Agentic AI & Document Intelligence</p>
                 <p className="text-muted-foreground text-[11px]">Present | Enterprise AI & Agentic Architectures</p>
               </div>
               <div className="border-l-2 border-primary pl-3">
                 <p className="text-foreground font-semibold">Freelance AI Engineer / Independent Research</p>
-                <p className="text-muted-foreground text-[11px]">Nov 2025 – Present | Quantum-Physics Inspired ML Manuscript (JCTC)</p>
+                <p className="text-muted-foreground text-[11px]">Nov 2025 – June 2026 | Quantum-Physics Inspired ML Manuscript (JCTC, ACS Publications)</p>
               </div>
               <div className="border-l-2 border-primary/70 pl-3">
                 <p className="text-foreground font-semibold">AI Developer — Anervea Data Labs Private Limited</p>
@@ -195,7 +195,7 @@ export function AITerminal() {
                 2. <span className="text-foreground font-semibold">Clinical Trial Patient Recruitment Platform</span> — Claude 3.5 Sonnet, AWS Bedrock, PGVector, Komodo, RAGAS, Snowflake. Reduced patient ID from months to &lt;30m.
               </p>
               <p>
-                3. <span className="text-foreground font-semibold">Quantum-Physics GNN Molecular Predictor</span> — PyTorch Geometric, RDKit, Quantum Descriptors (R² = 0.959). Manuscript under review at JCTC.
+                3. <span className="text-foreground font-semibold">Quantum-Physics GNN Molecular Predictor</span> — PyTorch Geometric, RDKit, Quantum Descriptors (R² = 0.959). Manuscript under review at the Journal of Chemical Theory and Computation (ACS Publications).
               </p>
               <p>
                 4. <span className="text-foreground font-semibold">Alzheimer's 3D MRI Volumetric Classifier</span> — Multi-view YOLOv8n ensemble on .nii MRI files (+64% over 2D).
@@ -217,7 +217,7 @@ export function AITerminal() {
                 📄 Manuscript (ct-2026-00508r): "Quantum-Physics Inspired ML Model for Partition Coefficient Prediction"
               </p>
               <p className="text-emerald-400 text-[11px]">
-                Submitted to Journal of Chemical Theory and Computation (ACS) — Under Review
+                Submitted to the Journal of Chemical Theory and Computation (ACS Publications) — Under Review
               </p>
               <p className="text-[11px]">
                 First author/co-author work integrating quantum chemical descriptors (QM, QMPSA, ΔG) with Graph Neural Networks.
@@ -260,7 +260,7 @@ export function AITerminal() {
               <p>Phone: <a href="tel:+919628104350" className="text-foreground hover:text-primary underline">+91 9628104350</a></p>
               <p>LinkedIn: <a href="https://www.linkedin.com/in/ansariserajmd/" target="_blank" rel="noreferrer" className="text-foreground hover:text-primary underline">linkedin.com/in/ansariserajmd</a></p>
               <p>GitHub: <a href="https://github.com/mohammadserajansari" target="_blank" rel="noreferrer" className="text-foreground hover:text-primary underline">github.com/mohammadserajansari</a></p>
-              <p>Location: <span className="text-foreground">Varanasi, UP, India / New Delhi / Remote</span></p>
+              <p>Location: <span className="text-foreground">Varanasi, UP, India</span></p>
             </div>
           </div>
         );

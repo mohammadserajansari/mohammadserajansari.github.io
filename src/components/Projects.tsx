@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ExternalLink, Github, Brain, Microscope, MessageSquare, Image, Dna, HeartPulse, Sparkles, Bot, Layers, ArrowUpRight } from 'lucide-react';
+import { Github, Brain, Microscope, MessageSquare, Dna, HeartPulse, Bot, Layers, ShieldCheck, FileSearch, Network } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 
@@ -16,7 +16,7 @@ const projects = [
     featured: true,
     metrics: 'Sub-second Voice Latency • Zero-Hallucination Guardrails',
     techStack: ['CrewAI', 'LangChain', 'Llama 3.3', 'FastAPI', 'Deepgram Nova-2', 'Docker'],
-    github: 'https://github.com/mohammadserajansari',
+    github: 'https://github.com/mohammadserajansari/dealership-voice-ai',
   },
   {
     title: 'Clinical Trial Patient Recruitment RAG Platform',
@@ -35,10 +35,10 @@ const projects = [
     category: 'quantum',
     tagline: 'State-of-the-Art LogP Partition Coefficient Prediction',
     description:
-      'Pioneered a machine learning pipeline combining classical and quantum descriptors (QM, QMPSA, ΔG) with Graph Neural Networks for computational drug discovery. Achieved state-of-the-art LogP performance with GNN (R² = 0.959, MAE = 0.115), outperforming XGBoost and ExtraTrees. Co-authored manuscript submitted to ACS Journal of Chemical Theory and Computation.',
+      'Pioneered a machine learning pipeline combining classical and quantum descriptors (QM, QMPSA, ΔG) with Graph Neural Networks for computational drug discovery. Achieved state-of-the-art LogP performance with GNN (R² = 0.959, MAE = 0.115), outperforming XGBoost and ExtraTrees. Co-authored manuscript submitted to the Journal of Chemical Theory and Computation (ACS Publications).',
     icon: Microscope,
     featured: true,
-    metrics: 'R² = 0.959 (SOTA) • JCTC Manuscript Under Review',
+    metrics: 'R² = 0.959 (SOTA) • JCTC (ACS Publications) Under Review',
     techStack: ['PyTorch Geometric', 'GNNs', 'RDKit', 'Modred', 'DeepChem', 'scikit-learn'],
     github: 'https://github.com/mohammadserajansari',
   },
@@ -55,16 +55,16 @@ const projects = [
     github: 'https://github.com/mohammadserajansari',
   },
   {
-    title: 'GenAI Enterprise Document Intelligence Platform',
+    title: 'Smart Document Q&A System',
     category: 'rag',
     tagline: 'High-Throughput RAG & Semantic QA Engine',
     description:
-      'Designed and deployed an end-to-end RAG pipeline for intelligent understanding and QA over complex enterprise document corpora. Built with FastAPI, LangChain, Hugging Face embeddings, and Qdrant vector database with custom chunking and re-ranking algorithms.',
+      'Built a production-style document Q&A API with asynchronous PDF and DOCX ingestion, hybrid FAISS and BM25 retrieval, and a corrective RAG workflow that checks grounding and retries weak retrieval. Supports multi-turn conversations with PostgreSQL, Celery, Redis, FastAPI, LangChain, and LangGraph.',
     icon: MessageSquare,
     featured: false,
-    metrics: 'Production Microservice • Sub-100ms Embedding Lookup',
-    techStack: ['Python', 'LangChain', 'Qdrant', 'Hugging Face', 'FastAPI', 'Docker'],
-    github: 'https://github.com/mohammadserajansari',
+    metrics: 'Hybrid Vector + BM25 Retrieval • Async Document Ingestion',
+    techStack: ['FastAPI', 'LangGraph', 'FAISS', 'BM25', 'PostgreSQL', 'Celery', 'Redis', 'Docker'],
+    github: 'https://github.com/mohammadserajansari/smart_doc_qa',
   },
   {
     title: 'Domain-Adapted BioBERT Clinical NLP Classifier',
@@ -77,6 +77,66 @@ const projects = [
     metrics: '4-bit QLoRA Quantization • Low-Memory GPU Serving',
     techStack: ['BioBERT', 'Hugging Face Transformers', 'PEFT/QLoRA', 'bitsandbytes', 'PyTorch', 'Docker'],
     github: 'https://github.com/mohammadserajansari',
+  },
+  {
+    title: 'Multi-Agent Research & Reporting System',
+    category: 'agentic',
+    tagline: 'Collaborative Research Across Web Sources and Documents',
+    description:
+      'Built a CrewAI research workflow that plans a query, gathers web and uploaded-document evidence, extracts findings, compares sources, and generates a report with confidence scoring. Supports multi-file input, local Ollama models, Tavily search, FastAPI, and persistent SQLite sessions.',
+    icon: Network,
+    featured: true,
+    metrics: 'Six-Agent Research Workflow • Multi-Format Document Analysis',
+    techStack: ['CrewAI', 'Ollama', 'FastAPI', 'Tavily', 'SQLite', 'Docker'],
+    github: 'https://github.com/mohammadserajansari/multi-agent-researcher',
+  },
+  {
+    title: 'ECCN Classification RAG',
+    category: 'rag',
+    tagline: 'Grounded Export Control Classification',
+    description:
+      'Created a retrieval-augmented classifier for matching product descriptions to export control classification numbers. Uses category routing, two-stage Qdrant retrieval, reranking, and grounded LLM reasoning over source definitions, with request tracing for auditable results.',
+    icon: ShieldCheck,
+    featured: true,
+    metrics: 'Two-Stage Retrieval • Source-Grounded Classification',
+    techStack: ['FastAPI', 'Qdrant', 'Sentence Transformers', 'LangChain', 'Groq', 'Docker'],
+    github: 'https://github.com/mohammadserajansari/eccn-ai-rag-classifier',
+  },
+  {
+    title: 'PowerPoint Template Intelligence',
+    category: 'agentic',
+    tagline: 'AI-Assisted Presentation Generation from Templates',
+    description:
+      'Built a service that analyzes presentation content and selects suitable PowerPoint templates, then generates slides through a FastAPI backend. The repository includes a Docker-based workflow and template scoring to keep generated decks aligned with the source layouts.',
+    icon: Layers,
+    featured: false,
+    metrics: 'Template Matching • Automated Slide Generation',
+    techStack: ['Python', 'FastAPI', 'LLMs', 'PowerPoint', 'Docker'],
+    github: 'https://github.com/mohammadserajansari/ppt-template-intelligence',
+  },
+  {
+    title: 'AI Chatbot Evaluation Tool',
+    category: 'agentic',
+    tagline: 'Local LLM Integration with Conversational Evaluation',
+    description:
+      'Integrated an Ollama-hosted Gemma 3 chatbot with the CeRAI AI Evaluation Tool. The project documents a reproducible local evaluation setup, an OpenAI-compatible FastAPI endpoint, and Apple Silicon Docker compatibility.',
+    icon: FileSearch,
+    featured: false,
+    metrics: 'Local Gemma 3 Inference • Reproducible Evaluation Setup',
+    techStack: ['Ollama', 'Gemma 3', 'FastAPI', 'Docker', 'CeRAI'],
+    github: 'https://github.com/mohammadserajansari/chatbot-AIEvaluationTool',
+  },
+  {
+    title: 'AI Text Transformer',
+    category: 'agentic',
+    tagline: 'Interactive T5 and GPT-2 Paraphrasing',
+    description:
+      'Developed a Streamlit application that uses pretrained T5-base and GPT-2 models to generate paraphrases from user-provided text through a simple web interface.',
+    icon: MessageSquare,
+    featured: false,
+    metrics: 'Two Transformer Models • Interactive Streamlit App',
+    techStack: ['Python', 'T5', 'GPT-2', 'PyTorch', 'Streamlit'],
+    github: 'https://github.com/mohammadserajansari/AI-Text-Transformer-Custom-Paraphrasing-Solutions',
   },
 ];
 
@@ -185,7 +245,7 @@ export function Projects() {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="p-1.5 rounded-lg text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
-                      title="View GitHub Repository"
+                      title={project.github === 'https://github.com/mohammadserajansari' ? "Browse Mohammad's GitHub repositories" : 'View GitHub Repository'}
                     >
                       <Github className="h-4 w-4" />
                     </a>

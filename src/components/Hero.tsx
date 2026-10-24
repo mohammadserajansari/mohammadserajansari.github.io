@@ -38,7 +38,7 @@ export function Hero() {
             <span className="hidden md:inline">LOCATION: VARANASI / NEW DELHI / REMOTE</span>
             <div className="flex items-center gap-1.5 px-2.5 py-0.5 rounded bg-primary/10 text-primary border border-primary/20">
               <Zap className="h-3 w-3" />
-              <span>ACTIVE: AI SOLUTIONS ENGINEER @ MGT</span>
+              <span>FOCUS: AGENTIC AI & DOCUMENT INTELLIGENCE</span>
             </div>
           </div>
         </div>
@@ -47,14 +47,6 @@ export function Hero() {
         <div className="grid lg:grid-cols-12 gap-8 lg:gap-10 items-center mb-12">
           {/* Left Column: Intro, Photo Hologram & CTAs */}
           <div className="lg:col-span-6 space-y-6">
-            {/* Status Pill */}
-            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-secondary/80 border border-primary/30 backdrop-blur-md shadow-lg shadow-primary/5">
-              <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping" />
-              <span className="text-xs sm:text-sm font-mono font-medium text-foreground">
-                AI Solutions Engineer <span className="text-primary font-bold">@ MGT</span>
-              </span>
-            </div>
-
             {/* Profile Avatar & Name Block */}
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5 pt-1">
               {/* Sci-Fi Holographic Photo Avatar */}
@@ -67,7 +59,7 @@ export function Hero() {
                 <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden border-2 border-primary bg-card shadow-xl">
                   <img
                     src="/Mohammad_Seraj.png"
-                    alt="Mohammad Seraj - AI Solutions Engineer"
+                    alt="Portrait of Mohammad Seraj"
                     className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                   />
                   {/* Holographic Scanline Overlay */}
@@ -100,14 +92,14 @@ export function Hero() {
               Engineering high-impact <span className="text-foreground font-medium">Agentic Workflows</span>,{' '}
               <span className="text-foreground font-medium">Enterprise RAG</span>, and{' '}
               <span className="text-foreground font-medium">Quantum-Inspired Graph Neural Networks</span>. 
-              Currently architecting enterprise AI solutions at <span className="text-primary font-semibold">MGT</span>, 
-              translating cutting-edge LLMs and deep learning into production-grade autonomy.
+              Currently building agentic AI and document intelligence systems at <span className="text-primary font-semibold">MGT</span>,
+              translating LLM research and deep learning into production-ready services.
             </p>
 
             {/* Quick Impact Tags */}
             <div className="flex flex-wrap gap-2 text-xs font-mono">
               <span className="px-3 py-1 rounded-md bg-secondary border border-border text-foreground/90">
-                ⚡ CrewAI & LangGraph
+                ⚡ LangChain • LangGraph • CrewAI
               </span>
               <span className="px-3 py-1 rounded-md bg-secondary border border-border text-foreground/90">
                 🔍 PGVector & Qdrant RAG
@@ -116,7 +108,7 @@ export function Hero() {
                 🧬 BioBERT & Clinical Trials
               </span>
               <span className="px-3 py-1 rounded-md bg-secondary border border-border text-foreground/90">
-                ⚛️ Quantum GNN (JCTC Paper)
+                ⚛️ Quantum GNN • JCTC (ACS Publications)
               </span>
             </div>
 

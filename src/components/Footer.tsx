@@ -22,7 +22,7 @@ export function Footer() {
               Mohammad Seraj
             </div>
             <p className="text-xs font-mono text-muted-foreground">
-              AI Solutions Engineer @ MGT • LLM & Agentic Systems Architect
+              Agentic AI • LLM Systems • Production Engineering
             </p>
           </div>
 
@@ -79,7 +79,7 @@ export function Footer() {
 
           <div className="flex items-center gap-2">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-            <span>CORE NODE: ONLINE // MGT ENTERPRISE</span>
+            <span>PERSONAL PORTFOLIO // ONLINE</span>
           </div>
         </div>
       </div>

@@ -43,8 +43,8 @@ const achievements = [
     tag: 'National Honor',
   },
   {
-    title: 'Peer-Reviewed Manuscript (ct-2026-00508r)',
-    issuer: 'Journal of Chemical Theory and Computation (ACS)',
+    title: 'Research Manuscript (ct-2026-00508r)',
+    issuer: 'Journal of Chemical Theory and Computation (ACS Publications)',
     description:
       'Co-authored research paper "Quantum-Physics Inspired ML Model for Partition Coefficient Prediction", pioneering quantum chemical descriptors with Graph Neural Networks for LogP prediction (under review).',
     icon: FileCheck2,

@@ -58,12 +58,11 @@ export function About() {
           </h3>
 
           <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
-            I am an AI/ML Engineer with a research pedigree from{' '}
+            I am an AI/ML Engineer with a research background from{' '}
             <span className="text-foreground font-semibold">IIIT Delhi</span> (M.Tech in Computational Biology) 
-            and hands-on experience building mission-critical AI systems. Currently at{' '}
-            <span className="text-primary font-semibold">MGT</span> as an{' '}
-            <span className="text-foreground font-semibold">AI Solutions Engineer</span>, I design and deploy 
-            high-throughput RAG engines, agentic orchestration swarms, and domain-adapted language models.
+            and hands-on experience building production AI systems. At{' '}
+            <span className="text-primary font-semibold">MGT</span>, I build agentic workflows, OCR-based document intelligence,
+            high-throughput RAG systems, and domain-adapted language models.
           </p>
         </div>
 

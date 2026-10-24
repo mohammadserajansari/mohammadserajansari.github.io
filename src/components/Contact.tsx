@@ -37,7 +37,7 @@ const contactInfo = [
   {
     icon: MapPin,
     label: 'Base Station',
-    value: 'Varanasi, UP, India (Open to Remote / Relocation)',
+    value: 'Varanasi, UP, India',
     copyable: false,
   },
 ];
