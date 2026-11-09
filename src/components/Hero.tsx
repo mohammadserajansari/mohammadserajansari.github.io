@@ -1,69 +1,30 @@
 import React from 'react';
-import { ArrowDown, Github, Linkedin, Mail, FileText, Download, Terminal, Sparkles, Phone, ShieldCheck, Zap } from 'lucide-react';
+import { ArrowDown, Github, Linkedin, Mail, FileText, Download, Terminal, Sparkles, Phone, ShieldCheck } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { NeuralMatrix3D } from '@/components/NeuralMatrix3D';
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen pt-24 pb-16 flex flex-col justify-center overflow-hidden">
-      {/* Background Cybernetic Grids & Deep Glows */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_hsl(187_86%_42%_/_0.15)_0%,_transparent_60%)] pointer-events-none" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_hsl(260_60%_55%_/_0.12)_0%,_transparent_60%)] pointer-events-none" />
-
-      {/* Cyberpunk Grid Overlay */}
-      <div
-        className="absolute inset-0 opacity-[0.03] pointer-events-none"
-        style={{
-          backgroundImage: `linear-gradient(hsl(var(--foreground)) 1px, transparent 1px),
-                           linear-gradient(90deg, hsl(var(--foreground)) 1px, transparent 1px)`,
-          backgroundSize: '80px 80px',
-        }}
-      />
-
-      {/* Floating Ambient Glow Orbs */}
-      <div className="absolute top-1/4 left-10 w-96 h-96 bg-primary/10 rounded-full blur-[120px] pointer-events-none animate-pulse-glow" />
-      <div className="absolute bottom-1/4 right-10 w-96 h-96 bg-purple-500/10 rounded-full blur-[120px] pointer-events-none animate-pulse-glow animation-delay-400" />
+    <section id="home" className="hero-section relative min-h-screen pt-28 pb-16 flex flex-col justify-start overflow-hidden">
+      <div className="hero-atmosphere" aria-hidden="true" />
 
       <div className="container-custom relative z-10">
-        {/* Top Sci-Fi Status Ticker */}
-        <div className="flex flex-wrap items-center justify-between gap-3 mb-8 pb-4 border-b border-primary/20 text-xs font-mono">
-          <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-            <span className="text-emerald-400 font-semibold tracking-wider">SYSTEM STATUS: OPTIMAL</span>
-            <span className="text-muted-foreground hidden sm:inline">•</span>
-            <span className="text-muted-foreground hidden sm:inline">SERAJ_CORE_v2.6</span>
-          </div>
-
-          <div className="flex items-center gap-4 text-muted-foreground">
-            <span className="hidden md:inline">LOCATION: VARANASI / NEW DELHI / REMOTE</span>
-            <div className="flex items-center gap-1.5 px-2.5 py-0.5 rounded bg-primary/10 text-primary border border-primary/20">
-              <Zap className="h-3 w-3" />
-              <span>FOCUS: AGENTIC AI & DOCUMENT INTELLIGENCE</span>
-            </div>
-          </div>
-        </div>
-
         {/* Hero Main Grid: Left Details & Right 3D Scene */}
-        <div className="grid lg:grid-cols-12 gap-8 lg:gap-10 items-center mb-12">
+        <div className="hero-grid grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center mb-12">
           {/* Left Column: Intro, Photo Hologram & CTAs */}
-          <div className="lg:col-span-6 space-y-6">
+          <div className="hero-copy lg:col-span-6 space-y-6">
             {/* Profile Avatar & Name Block */}
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5 pt-1">
               {/* Sci-Fi Holographic Photo Avatar */}
-              <div className="relative group flex-shrink-0">
-                {/* Rotating Outer Tech Ring */}
-                <div className="absolute -inset-2 rounded-full border-2 border-dashed border-primary/40 animate-spin-slow group-hover:border-primary transition-colors" />
-                <div className="absolute -inset-1 rounded-full bg-gradient-to-tr from-primary to-purple-600 opacity-40 blur-sm group-hover:opacity-75 transition-opacity" />
-                
-                {/* Image Container */}
-                <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden border-2 border-primary bg-card shadow-xl">
+              <div className="profile-avatar relative group flex-shrink-0">
+                <div className="profile-avatar-halo" aria-hidden="true" />
+
+                <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden border-2 border-background bg-card shadow-xl">
                   <img
                     src="/Mohammad_Seraj.png"
                     alt="Portrait of Mohammad Seraj"
                     className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                   />
-                  {/* Holographic Scanline Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/10 to-transparent opacity-60 pointer-events-none" />
                 </div>
 
                 {/* Status Dot */}
@@ -74,7 +35,7 @@ export function Hero() {
 
               {/* Headline */}
               <div>
-                <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight font-display">
+                <h1 className="hero-title text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight font-display">
                   <span className="text-foreground">Mohammad </span>
                   <span className="gradient-text">Seraj</span>
                 </h1>
@@ -88,7 +49,7 @@ export function Hero() {
             </div>
 
             {/* Mission Statement */}
-            <p className="text-base sm:text-lg text-muted-foreground leading-relaxed text-left">
+            <p className="hero-intro text-base sm:text-lg text-muted-foreground leading-relaxed text-left">
               Building agentic AI workflows, enterprise RAG systems, and intelligent document-processing pipelines at{' '}
               <span className="text-primary font-semibold">MGT</span>. Research interests span computational drug discovery,
               quantum-inspired graph neural networks, and biomedical deep learning—bringing together production AI engineering
@@ -96,17 +57,17 @@ export function Hero() {
             </p>
 
             {/* Quick Impact Tags */}
-            <div className="flex flex-wrap gap-2 text-xs font-mono">
-              <span className="px-3 py-1 rounded-md bg-secondary border border-border text-foreground/90">
+            <div className="hero-tags flex flex-wrap gap-2 text-xs font-mono">
+              <span className="hero-tag px-3 py-1 rounded-full bg-secondary border border-border text-foreground/90">
                 ⚡ LangChain • LangGraph • CrewAI
               </span>
-              <span className="px-3 py-1 rounded-md bg-secondary border border-border text-foreground/90">
+              <span className="hero-tag px-3 py-1 rounded-full bg-secondary border border-border text-foreground/90">
                 🔍 PGVector & Qdrant RAG
               </span>
-              <span className="px-3 py-1 rounded-md bg-secondary border border-border text-foreground/90">
+              <span className="hero-tag px-3 py-1 rounded-full bg-secondary border border-border text-foreground/90">
                 🧬 BioBERT & Clinical Trials
               </span>
-              <span className="px-3 py-1 rounded-md bg-secondary border border-border text-foreground/90">
+              <span className="hero-tag px-3 py-1 rounded-full bg-secondary border border-border text-foreground/90">
                 ⚛️ Quantum GNN • JCTC (ACS Publications)
               </span>
             </div>
@@ -114,21 +75,21 @@ export function Hero() {
             {/* CTAs: Resume Download, Projects, Contact */}
             <div className="flex flex-wrap items-center gap-3 pt-2">
               {/* Primary Resume Download Button */}
-              <Button variant="outline" size="lg" className="group font-mono border-primary/30 hover:border-primary" asChild>
+              <Button variant="outline" size="lg" className="glass-control group font-medium" asChild>
                 <a href="/Mohammad_Seraj_Resume.pdf" download="Mohammad_Seraj_Resume.pdf" className="inline-flex items-center gap-2">
                   <Download className="h-4 w-4 group-hover:-translate-y-0.5 transition-transform flex-shrink-0" />
                   <span>Download Resume</span>
                 </a>
               </Button>
 
-              <Button variant="outline" size="lg" className="group font-mono border-primary/30 hover:border-primary" asChild>
+              <Button variant="outline" size="lg" className="glass-control group font-medium" asChild>
                 <a href="#projects">
                   Explore Projects
                   <ArrowDown className="ml-2 h-4 w-4 group-hover:translate-y-1 transition-transform" />
                 </a>
               </Button>
 
-              <Button variant="outline" size="lg" className="group font-mono border-primary/30 hover:border-primary" asChild>
+              <Button variant="outline" size="lg" className="glass-control group font-medium" asChild>
                 <a href="#contact">
                   <Mail className="mr-2 h-4 w-4" />
                   Initiate Connection
@@ -143,7 +104,7 @@ export function Hero() {
                 target="_blank"
                 rel="noopener noreferrer"
                 title="LinkedIn Profile"
-                className="p-2.5 rounded-xl bg-secondary/60 border border-border hover:border-primary hover:bg-primary/10 hover:text-primary transition-all duration-300"
+                className="icon-button glass-control text-muted-foreground hover:text-primary"
               >
                 <Linkedin className="h-5 w-5" />
               </a>
@@ -153,7 +114,7 @@ export function Hero() {
                 target="_blank"
                 rel="noopener noreferrer"
                 title="GitHub Repositories"
-                className="p-2.5 rounded-xl bg-secondary/60 border border-border hover:border-primary hover:bg-primary/10 hover:text-primary transition-all duration-300"
+                className="icon-button glass-control text-muted-foreground hover:text-primary"
               >
                 <Github className="h-5 w-5" />
               </a>
@@ -161,7 +122,7 @@ export function Hero() {
               <a
                 href="mailto:mail.serajansari@gmail.com"
                 title="Send Email"
-                className="p-2.5 rounded-xl bg-secondary/60 border border-border hover:border-primary hover:bg-primary/10 hover:text-primary transition-all duration-300"
+                className="icon-button glass-control text-muted-foreground hover:text-primary"
               >
                 <Mail className="h-5 w-5" />
               </a>
@@ -169,7 +130,7 @@ export function Hero() {
               <a
                 href="tel:+919628104350"
                 title="Direct Phone (+91- 9628104350)"
-                className="p-2.5 rounded-xl bg-secondary/60 border border-border hover:border-primary hover:bg-primary/10 hover:text-primary transition-all duration-300"
+                className="icon-button glass-control text-muted-foreground hover:text-primary"
               >
                 <Phone className="h-5 w-5" />
               </a>
@@ -181,7 +142,7 @@ export function Hero() {
           </div>
 
           {/* Right Column: Interactive 3D Neural Matrix Canvas */}
-          <div className="lg:col-span-6 w-full">
+          <div className="hero-visual lg:col-span-6 w-full">
             <NeuralMatrix3D />
           </div>
         </div>

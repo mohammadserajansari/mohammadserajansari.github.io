@@ -218,25 +218,18 @@ export function Projects() {
           {filteredProjects.map((project) => (
             <div
               key={project.title}
-              className={`group p-6 rounded-2xl bg-card border border-border/80 card-glow flex flex-col justify-between transition-all duration-300 relative overflow-hidden ${
-                project.featured ? 'border-primary/40 shadow-primary/5' : ''
-              }`}
+              className="project-card glass-card group p-6 rounded-2xl card-glow flex flex-col transition-all duration-300 relative overflow-hidden"
             >
-              {/* Top Accent Line */}
-              {project.featured && (
-                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-purple-500 to-primary" />
-              )}
-
-              <div>
+              <div className="project-card-main">
                 {/* Header */}
                 <div className="flex items-start justify-between gap-3 mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary group-hover:scale-105 transition-transform">
+                  <div className="icon-tile w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary group-hover:scale-105 transition-transform">
                     <project.icon className="h-6 w-6" />
                   </div>
 
                   <div className="flex items-center gap-2">
                     {project.featured && (
-                      <Badge className="bg-primary/20 text-primary border border-primary/30 text-[10px] font-mono">
+                      <Badge className="badge-standard bg-primary/10 text-primary border border-primary/20 text-[10px] font-mono">
                         FEATURED
                       </Badge>
                     )}
@@ -244,7 +237,7 @@ export function Projects() {
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-1.5 rounded-lg text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
+                      className="icon-button text-muted-foreground hover:text-foreground"
                       title={project.github === 'https://github.com/mohammadserajansari' ? "Browse Mohammad's GitHub repositories" : 'View GitHub Repository'}
                     >
                       <Github className="h-4 w-4" />
@@ -266,10 +259,10 @@ export function Projects() {
                 </p>
               </div>
 
-              <div>
+              <div className="project-card-footer">
                 {/* Metrics Highlight Pill */}
-                <div className="p-2.5 rounded-lg bg-secondary/50 border border-border/60 text-xs font-mono text-emerald-400 font-semibold mb-4 flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
+                <div className="project-metric metric-indicator p-2.5 rounded-xl text-xs font-mono text-emerald-700 dark:text-emerald-300 font-semibold mb-4 flex items-center gap-2">
+                  <span className="metric-dot w-1.5 h-1.5 rounded-full bg-emerald-500" />
                   <span>{project.metrics}</span>
                 </div>
 
@@ -278,7 +271,7 @@ export function Projects() {
                   {project.techStack.map((tech) => (
                     <span
                       key={tech}
-                      className="px-2 py-0.5 rounded text-[11px] font-mono bg-secondary/80 text-foreground/80 border border-border"
+                      className="glass-badge px-2.5 py-1 rounded-full text-[11px] font-mono text-foreground/80"
                     >
                       {tech}
                     </span>

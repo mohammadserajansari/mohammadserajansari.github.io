@@ -202,9 +202,9 @@ export function Contact() {
           </p>
         </div>
 
-        <div className="max-w-5xl mx-auto grid lg:grid-cols-12 gap-8 items-start">
+        <div className="contact-layout max-w-5xl mx-auto grid lg:grid-cols-12 gap-8 items-stretch">
           {/* Left: Contact Cards & Direct Resume */}
-          <div className="lg:col-span-5 space-y-4">
+          <div className="contact-details lg:col-span-5 space-y-4">
             <h4 className="text-lg font-bold font-display text-foreground mb-4 flex items-center gap-2">
               <Sparkles className="h-4 w-4 text-primary" />
               Direct Transmission Nodes
@@ -213,10 +213,10 @@ export function Contact() {
             {contactInfo.map((item) => (
               <div
                 key={item.label}
-                className="p-4 rounded-xl bg-card border border-border/80 card-glow flex items-center justify-between gap-4 group hover:border-primary/40 transition-all"
+                className="glass-card contact-method-card p-4 rounded-xl card-glow flex items-center justify-between gap-4 group hover:border-primary/40 transition-all"
               >
                 <div className="flex items-center gap-3.5 min-w-0">
-                  <div className="w-10 h-10 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center text-primary group-hover:scale-105 transition-transform flex-shrink-0">
+                  <div className="icon-tile w-10 h-10 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center text-primary group-hover:scale-105 transition-transform flex-shrink-0">
                     <item.icon className="h-5 w-5" />
                   </div>
                   <div className="min-w-0">
@@ -244,7 +244,7 @@ export function Contact() {
                   <button
                     onClick={() => handleCopy(item.value, item.label)}
                     title="Copy to clipboard"
-                    className="p-2 rounded-lg bg-secondary/80 text-muted-foreground hover:text-primary hover:bg-primary/10 transition-colors flex-shrink-0"
+                    className="icon-button text-muted-foreground hover:text-primary flex-shrink-0"
                   >
                     {copiedItem === item.label ? (
                       <Check className="h-4 w-4 text-emerald-400" />
@@ -257,7 +257,7 @@ export function Contact() {
             ))}
 
             {/* Direct Resume Download Card */}
-            <div className="p-5 rounded-xl bg-gradient-to-r from-primary/10 via-card to-card border border-primary/30 flex items-center justify-between gap-4 mt-6">
+            <div className="glass-card p-5 rounded-xl flex items-center justify-between gap-4 mt-6">
               <div>
                 <p className="text-xs font-mono text-primary font-semibold">
                   OFFICIAL RESUME (PDF)
@@ -278,7 +278,7 @@ export function Contact() {
           </div>
 
           {/* Right: Interactive Message Console with Multi-Provider Support */}
-          <div className="lg:col-span-7 p-6 sm:p-8 rounded-2xl bg-card border border-border/80 card-glow shadow-xl">
+          <div className="contact-form-card glass-card lg:col-span-7 p-6 sm:p-8 rounded-2xl card-glow">
             <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
               <h4 className="text-lg font-bold font-display text-foreground">
                 Transmit a Message
@@ -317,7 +317,7 @@ export function Contact() {
             )}
 
             <form onSubmit={handleSubmit} className="space-y-4 font-mono text-xs">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="contact-form-fields grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-1.5">
                   <label className="text-muted-foreground uppercase text-[10px]">
                     Your Name *
