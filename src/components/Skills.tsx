@@ -162,12 +162,12 @@ export function Skills() {
           {visibleCategories.map((cat) => (
             <div
               key={cat.id}
-              className="p-6 rounded-2xl bg-card border border-border/80 card-glow flex flex-col justify-between transition-all duration-300"
+              className="glass-card p-6 rounded-2xl card-glow flex flex-col justify-between transition-all duration-300"
             >
               <div>
                 {/* Header */}
                 <div className="flex items-center gap-3 mb-5">
-                  <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
+                  <div className="icon-tile w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
                     <cat.icon className="h-5 w-5" />
                   </div>
                   <h4 className="text-base font-bold font-display text-foreground">
@@ -180,7 +180,7 @@ export function Skills() {
                   {cat.skills.map((skill) => (
                     <div
                       key={skill.name}
-                      className="p-2 rounded-lg bg-secondary/40 border border-border/50 flex items-center hover:border-primary/40 transition-colors"
+                      className="glass-inset p-2 rounded-lg flex items-center hover:border-primary/40 transition-colors"
                     >
                       <span className="text-xs font-mono text-foreground flex items-center gap-2">
                         <span className="w-1.5 h-1.5 rounded-full bg-primary" />

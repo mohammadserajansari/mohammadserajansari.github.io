@@ -67,9 +67,16 @@ export function Hero() {
               <span className="hero-tag px-3 py-1 rounded-full bg-secondary border border-border text-foreground/90">
                 🧬 BioBERT & Clinical Trials
               </span>
-              <span className="hero-tag px-3 py-1 rounded-full bg-secondary border border-border text-foreground/90">
-                ⚛️ Quantum GNN • JCTC (ACS Publications)
-              </span>
+              <a
+                className="hero-tag hero-tag-link px-3 py-1 rounded-full bg-secondary border border-border text-foreground/90"
+                href="https://pubs.acs.org/acsodf/article/doi/10.1021/acsomega.6c10110/5464047/Developing-a-Quantum-Physics-Inspired-Machine?searchresult=1"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Read my quantum GNN research paper on ACS Publications, opens in a new tab"
+                title="Read research paper on ACS Publications"
+              >
+                ⚛️ Quantum GNN • ACS Paper
+              </a>
             </div>
 
             {/* CTAs: Resume Download, Projects, Contact */}

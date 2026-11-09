@@ -136,7 +136,7 @@ export function Experience() {
                   tabIndex={active ? 0 : -1}
                   onClick={() => selectExperience(index)}
                   onKeyDown={handleTabKeyDown}
-                  className={`experience-stop ${active ? 'is-active' : ''}`}
+                  className={`experience-stop glass-card ${active ? 'is-active' : ''}`}
                 >
                   <span className="experience-stop-marker" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
                   <span className="experience-stop-copy">
@@ -155,16 +155,16 @@ export function Experience() {
             aria-labelledby={`experience-tab-${selectedIndex}`}
             aria-live="polite"
             aria-label={`${selected.role} at ${selected.company}`}
-            className="experience-panel mt-6 rounded-2xl border border-border/80 bg-card/90 p-5 sm:p-8 lg:p-10"
+            className="experience-panel glass-card mt-6 rounded-2xl p-5 sm:p-8 lg:p-10"
           >
             <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-8 lg:gap-12">
               <div>
                 <div className="flex flex-wrap items-center gap-2 mb-5">
-                  <Badge variant="secondary" className="font-mono text-xs">{selected.type}</Badge>
-                  {selected.isCurrent && <Badge className="bg-emerald-500 text-slate-950 font-mono text-xs">Current</Badge>}
+                  <Badge variant="secondary" className="badge-standard font-mono text-xs">{selected.type}</Badge>
+                  {selected.isCurrent && <Badge className="badge-standard status-badge-current bg-emerald-500/12 text-emerald-700 dark:text-emerald-300 border border-emerald-500/25 font-mono text-xs">Current</Badge>}
                 </div>
                 <div className="flex items-start gap-3 mb-3">
-                  <span className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-primary/20 bg-primary/10 text-primary">
+                  <span className="icon-tile mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-primary/20 bg-primary/10 text-primary">
                     <Building2 className="h-5 w-5" aria-hidden="true" />
                   </span>
                   <div>
@@ -194,7 +194,7 @@ export function Experience() {
 
             <div className="mt-8 flex flex-wrap gap-2 border-t border-border/70 pt-5" aria-label="Technologies used">
               {selected.techStack.map((technology) => (
-                <span key={technology} className="rounded-md border border-primary/15 bg-primary/5 px-2.5 py-1 text-[11px] font-mono text-foreground/80">{technology}</span>
+                <span key={technology} className="glass-badge rounded-full px-2.5 py-1 text-[11px] font-mono text-foreground/80">{technology}</span>
               ))}
             </div>
           </article>

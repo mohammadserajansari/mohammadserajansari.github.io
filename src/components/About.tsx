@@ -66,9 +66,9 @@ export function About() {
           {metrics.map((m) => (
             <div
               key={m.label}
-              className="p-4 rounded-xl bg-card/60 border border-border/80 backdrop-blur-sm hover:border-primary/40 transition-all text-center flex flex-col justify-center items-center group card-glow"
+              className="glass-card metric-card p-4 rounded-xl text-center flex flex-col justify-center items-center group card-glow"
             >
-              <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-2 group-hover:scale-110 transition-transform">
+              <div className="icon-tile metric-icon w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-2 group-hover:scale-110 transition-transform">
                 <m.icon className="h-4 w-4" />
               </div>
               <div className="text-xl sm:text-2xl font-bold font-mono gradient-text mb-1">{m.value}</div>
@@ -84,10 +84,10 @@ export function About() {
           {pillars.map((pillar) => (
             <div
               key={pillar.title}
-              className="p-6 rounded-2xl bg-card border border-border/80 card-glow flex flex-col justify-between"
+              className="glass-card p-6 rounded-2xl card-glow flex flex-col justify-between"
             >
               <div>
-                <div className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary mb-5">
+                <div className="icon-tile w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary mb-5">
                   <pillar.icon className="h-6 w-6" />
                 </div>
                 <h4 className="text-lg font-bold font-display text-foreground mb-2">

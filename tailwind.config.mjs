@@ -1,5 +1,3 @@
-import type { Config } from "tailwindcss";
-
 export default {
   darkMode: ["class"],
   content: ["./pages/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}", "./app/**/*.{ts,tsx}", "./src/**/*.{ts,tsx}"],
@@ -14,8 +12,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ['Space Grotesk', 'system-ui', 'sans-serif'],
-        mono: ['JetBrains Mono', 'monospace'],
+        display: ['-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'system-ui', 'sans-serif'],
+        mono: ['SFMono-Regular', 'Consolas', 'Liberation Mono', 'monospace'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -121,4 +119,4 @@ export default {
     },
   },
   plugins: [require("tailwindcss-animate")],
-} satisfies Config;
+};

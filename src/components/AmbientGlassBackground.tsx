@@ -7,23 +7,26 @@ export function AmbientGlassBackground() {
       <svg className="glass-ribbons" viewBox="0 0 1600 1100" preserveAspectRatio="xMidYMid slice">
         <defs>
           <linearGradient id="pearl-ribbon-a" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0" stopColor="#ffffff" stopOpacity=".84" />
-            <stop offset=".22" stopColor="#d8e8f2" stopOpacity=".43" />
-            <stop offset=".48" stopColor="#ffffff" stopOpacity=".22" />
-            <stop offset=".76" stopColor="#b8d5e8" stopOpacity=".36" />
-            <stop offset="1" stopColor="#f8fbff" stopOpacity=".75" />
+            <stop offset="0" stopColor="#d7eeff" stopOpacity=".78" />
+            <stop offset=".18" stopColor="#9bd8fa" stopOpacity=".46" />
+            <stop offset=".4" stopColor="#f5f8fc" stopOpacity=".3" />
+            <stop offset=".62" stopColor="#77c9df" stopOpacity=".42" />
+            <stop offset=".82" stopColor="#c2b5f2" stopOpacity=".32" />
+            <stop offset="1" stopColor="#f5f8fc" stopOpacity=".72" />
           </linearGradient>
           <linearGradient id="pearl-ribbon-b" x1="0" y1="1" x2="1" y2="0">
-            <stop offset="0" stopColor="#a9cde1" stopOpacity=".42" />
-            <stop offset=".33" stopColor="#ffffff" stopOpacity=".54" />
-            <stop offset=".62" stopColor="#c7d5e9" stopOpacity=".25" />
-            <stop offset="1" stopColor="#f7fbff" stopOpacity=".66" />
+            <stop offset="0" stopColor="#77c9df" stopOpacity=".4" />
+            <stop offset=".3" stopColor="#d7eeff" stopOpacity=".52" />
+            <stop offset=".56" stopColor="#9bd8fa" stopOpacity=".35" />
+            <stop offset=".78" stopColor="#c2b5f2" stopOpacity=".28" />
+            <stop offset="1" stopColor="#f5f8fc" stopOpacity=".65" />
           </linearGradient>
           <linearGradient id="pearl-ribbon-c" x1="0" y1="0" x2=".9" y2="1">
-            <stop offset="0" stopColor="#eaf4fa" stopOpacity=".32" />
-            <stop offset=".4" stopColor="#a9d3e5" stopOpacity=".42" />
-            <stop offset=".72" stopColor="#ffffff" stopOpacity=".58" />
-            <stop offset="1" stopColor="#c7d5e9" stopOpacity=".28" />
+            <stop offset="0" stopColor="#c2b5f2" stopOpacity=".25" />
+            <stop offset=".32" stopColor="#77c9df" stopOpacity=".45" />
+            <stop offset=".62" stopColor="#d7eeff" stopOpacity=".55" />
+            <stop offset=".82" stopColor="#9bd8fa" stopOpacity=".4" />
+            <stop offset="1" stopColor="#b8cbdd" stopOpacity=".34" />
           </linearGradient>
           <linearGradient id="graphite-ribbon-a" x1="0" y1="0" x2="1" y2="1">
             <stop offset="0" stopColor="#c1d5dc" stopOpacity=".22" />
@@ -57,9 +60,20 @@ export function AmbientGlassBackground() {
             <stop offset="1" stopColor="#95d9e2" stopOpacity="0" />
           </linearGradient>
           <radialGradient id="pearl-light-wash">
-            <stop offset="0" stopColor="#ffffff" stopOpacity=".72" />
-            <stop offset=".58" stopColor="#e8f2f8" stopOpacity=".26" />
-            <stop offset="1" stopColor="#d9e8f2" stopOpacity="0" />
+            <stop offset="0" stopColor="#9bd8fa" stopOpacity=".42" />
+            <stop offset=".42" stopColor="#77c9df" stopOpacity=".2" />
+            <stop offset=".72" stopColor="#c2b5f2" stopOpacity=".16" />
+            <stop offset="1" stopColor="#d7eeff" stopOpacity="0" />
+          </radialGradient>
+          <radialGradient id="sea-light-wash">
+            <stop offset="0" stopColor="#77c9df" stopOpacity=".34" />
+            <stop offset=".5" stopColor="#9bd8fa" stopOpacity=".14" />
+            <stop offset="1" stopColor="#f5f8fc" stopOpacity="0" />
+          </radialGradient>
+          <radialGradient id="violet-light-wash">
+            <stop offset="0" stopColor="#c2b5f2" stopOpacity=".28" />
+            <stop offset=".56" stopColor="#c2b5f2" stopOpacity=".1" />
+            <stop offset="1" stopColor="#c2b5f2" stopOpacity="0" />
           </radialGradient>
           <radialGradient id="graphite-light-wash">
             <stop offset="0" stopColor="#244951" stopOpacity=".24" />
@@ -73,14 +87,17 @@ export function AmbientGlassBackground() {
 
         <g className="glass-ribbon-set glass-ribbon-set-light">
           <ellipse cx="420" cy="350" rx="650" ry="430" fill="url(#pearl-light-wash)" />
-          <ellipse cx="1320" cy="820" rx="600" ry="390" fill="url(#pearl-light-wash)" opacity=".56" />
+          <ellipse cx="1120" cy="570" rx="660" ry="440" fill="url(#sea-light-wash)" opacity=".72" />
+          <ellipse cx="1320" cy="820" rx="600" ry="390" fill="url(#violet-light-wash)" opacity=".62" />
           <g className="glass-ribbon glass-ribbon-one">
             <path d="M-230 90 C80 10 265 70 440 250 C600 416 720 435 900 272 C1087 102 1290 28 1830 146 L1830 400 C1360 278 1194 351 1010 536 C812 733 558 707 350 492 C174 310 45 268 -230 425Z" fill="url(#pearl-ribbon-a)" />
             <path d="M-190 112 C92 40 269 95 428 260 C599 437 737 450 916 285 C1097 117 1303 56 1790 160" fill="none" stroke="url(#glass-edge-light)" strokeWidth="5" opacity=".66" />
+            <path d="M-155 132 C126 62 284 119 441 280 C608 451 744 462 928 301 C1105 145 1316 82 1760 182" fill="none" stroke="#ffffff" strokeWidth="1.5" opacity=".44" />
           </g>
           <g className="glass-ribbon glass-ribbon-two">
             <path d="M-190 518 C110 330 320 348 520 520 C705 679 839 790 1065 651 C1272 524 1450 435 1810 540 L1810 800 C1508 704 1325 744 1110 886 C850 1058 653 916 452 754 C246 588 80 617 -190 832Z" fill="url(#pearl-ribbon-b)" />
             <path d="M-150 541 C125 368 322 378 508 537 C704 703 857 817 1080 676 C1290 544 1468 476 1770 558" fill="none" stroke="url(#glass-edge-light)" strokeWidth="4" opacity=".58" />
+            <path d="M-128 562 C142 394 333 404 520 556 C710 712 868 836 1094 696 C1307 566 1476 497 1744 579" fill="none" stroke="#eaf7ff" strokeWidth="1.5" opacity=".34" />
           </g>
           <g className="glass-ribbon glass-ribbon-three">
             <path d="M-140 892 C148 719 344 750 548 886 C772 1036 951 1099 1174 956 C1392 815 1555 794 1770 862 L1770 1170 L-140 1170Z" fill="url(#pearl-ribbon-c)" />

@@ -59,7 +59,7 @@ export function AgentFlowDiagram() {
   const [selectedAgent, setSelectedAgent] = useState<AgentNode>(agents[0]);
 
   return (
-    <div className="w-full rounded-2xl border border-primary/20 bg-card/60 backdrop-blur-md p-6 sm:p-8 shadow-2xl relative overflow-hidden">
+    <div className="glass-card w-full rounded-2xl p-6 sm:p-8 relative overflow-hidden">
       {/* Sci-Fi Accent Line */}
       <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-primary to-transparent" />
 
@@ -89,11 +89,7 @@ export function AgentFlowDiagram() {
             <div
               key={ag.id}
               onClick={() => setSelectedAgent(ag)}
-              className={`p-4 rounded-xl cursor-pointer transition-all duration-300 relative border ${
-                isSelected
-                  ? 'bg-primary/10 border-primary shadow-lg shadow-primary/10 scale-[1.02]'
-                  : 'bg-secondary/40 border-border hover:border-primary/40 hover:bg-secondary/70'
-              }`}
+              className={`agent-node glass-inset p-4 rounded-xl cursor-pointer transition-all duration-300 relative border ${isSelected ? 'is-selected border-primary scale-[1.02]' : 'border-border hover:border-primary/40'}`}
             >
               {isSelected && (
                 <div className="absolute -top-1.5 -right-1.5 w-3 h-3 rounded-full bg-primary animate-ping" />
@@ -105,7 +101,7 @@ export function AgentFlowDiagram() {
                   {ag.id === 'extraction' && <Bot className="h-4 w-4" />}
                   {ag.id === 'evaluator' && <ShieldCheck className="h-4 w-4" />}
                 </div>
-                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-background/80 text-primary border border-primary/20">
+                <span className="glass-badge text-[10px] font-mono px-2.5 py-1 rounded-full text-primary">
                   {ag.status}
                 </span>
               </div>
@@ -117,14 +113,14 @@ export function AgentFlowDiagram() {
       </div>
 
       {/* Selected Agent Deep Dive Card */}
-      <div className="p-5 rounded-xl bg-secondary/30 border border-primary/20 flex flex-col md:flex-row gap-6 items-start justify-between">
+      <div className="glass-inset agent-detail p-5 rounded-xl flex flex-col md:flex-row gap-6 items-start justify-between">
         <div className="space-y-3 flex-1">
           <div className="flex flex-wrap items-center gap-3">
             <h5 className="text-lg font-bold text-foreground flex items-center gap-2">
               <Zap className="h-4 w-4 text-primary" />
               {selectedAgent.name}
             </h5>
-            <span className="px-2.5 py-0.5 rounded-full text-xs font-mono bg-primary/20 text-primary border border-primary/30">
+            <span className="glass-badge px-2.5 py-1 rounded-full text-xs font-mono text-primary">
               Model: {selectedAgent.model}
             </span>
           </div>
@@ -137,7 +133,7 @@ export function AgentFlowDiagram() {
             {selectedAgent.tech.map((t) => (
               <span
                 key={t}
-                className="px-2.5 py-1 rounded-md text-xs font-mono bg-background border border-border text-foreground/90 flex items-center gap-1.5"
+                className="glass-badge px-2.5 py-1 rounded-full text-xs font-mono text-foreground/90 flex items-center gap-1.5"
               >
                 <CheckCircle2 className="h-3 w-3 text-emerald-400" />
                 {t}
@@ -146,7 +142,7 @@ export function AgentFlowDiagram() {
           </div>
         </div>
 
-        <div className="w-full md:w-auto p-4 rounded-lg bg-background/80 border border-border/80 flex flex-col gap-2 min-w-[200px]">
+        <div className="glass-inset w-full md:w-auto p-4 rounded-xl flex flex-col gap-2 min-w-[200px]">
           <span className="text-[11px] font-mono text-muted-foreground uppercase tracking-wider">
             Operational Telemetry
           </span>

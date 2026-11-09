@@ -318,7 +318,7 @@ export function AITerminal() {
   };
 
   return (
-    <div className="w-full rounded-2xl border border-primary/20 bg-card/80 backdrop-blur-md overflow-hidden shadow-2xl flex flex-col font-mono text-sm">
+    <div className="glass-card w-full rounded-2xl overflow-hidden flex flex-col font-mono text-sm">
       {/* Terminal Title Bar */}
       <div className="flex items-center justify-between px-4 py-2.5 bg-secondary/70 border-b border-border/80">
         <div className="flex items-center gap-2">
@@ -337,7 +337,7 @@ export function AITerminal() {
           <button
             onClick={() => setHistory([])}
             title="Clear terminal"
-            className="p-1 rounded text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
+            className="icon-button h-8 w-8 text-muted-foreground hover:text-foreground"
           >
             <Trash2 className="h-3.5 w-3.5" />
           </button>

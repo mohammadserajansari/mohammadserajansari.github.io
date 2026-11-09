@@ -357,6 +357,9 @@
 .hero-intro { max-width: 62ch; line-height: 1.72; text-wrap: pretty; }
 .hero-tag { background: hsl(var(--card) / 0.68); border-color: hsl(var(--foreground) / 0.09); box-shadow: inset 0 1px 0 hsl(0 0% 100% / 0.18); }
 .dark .hero-tag { background: hsl(var(--card) / 0.74); box-shadow: inset 0 1px 0 hsl(0 0% 100% / 0.06); }
+.hero-tag-link { display: inline-flex; align-items: center; text-decoration: none; transition: background-color 180ms ease, border-color 180ms ease, color 180ms ease, transform 180ms ease; }
+.hero-tag-link:hover { color: hsl(var(--foreground)); background: hsl(var(--primary) / 0.12); border-color: hsl(var(--primary) / 0.38); transform: translateY(-1px); }
+.hero-tag-link:focus-visible { outline: 2px solid hsl(var(--primary) / 0.8); outline-offset: 3px; }
 
 /* The neural visualization is an illustration in the hero, not an application panel. */
 .neural-matrix-panel { overflow: visible; }
@@ -371,6 +374,14 @@
 .neural-controls button { white-space: nowrap; border-radius: 9999px; padding: 0.38rem 0.68rem; }
 .neural-controls button.neural-mode-active { background: hsl(var(--primary) / 0.11); border: 1px solid hsl(var(--primary) / 0.25); }
 .neural-controls button:last-child { border: 1px solid hsl(var(--primary) / 0.2); background: hsl(var(--card) / 0.56); }
+.neural-controls button.neural-pulse-button:hover,
+.neural-controls button.neural-pulse-button:focus-visible {
+  color: hsl(var(--primary-foreground));
+  -webkit-text-fill-color: hsl(var(--primary-foreground));
+  background: hsl(var(--primary));
+  border-color: hsl(var(--primary));
+  box-shadow: 0 0 0 3px hsl(var(--primary) / 0.2), 0 6px 18px hsl(var(--primary) / 0.22);
+}
 .nav-link { position: relative; }
 .nav-link.is-active { color: hsl(var(--foreground)); background: hsl(var(--foreground) / 0.055); }
 
@@ -661,18 +672,18 @@
 
 /* Refined floating navigation: translucent fill keeps the aurora legible beneath the glass. */
 nav .glass-nav {
-  background: linear-gradient(145deg, rgb(246 250 255 / 0.075), rgb(239 246 253 / 0.045));
+  background: linear-gradient(145deg, rgb(246 250 255 / 0.06), rgb(239 246 253 / 0.035));
   border-color: rgb(255 255 255 / 0.44);
   box-shadow:
     0 12px 34px rgb(48 65 88 / 0.075),
     inset 0 1px 0 rgb(255 255 255 / 0.62),
     inset 0 -1px 0 rgb(141 166 192 / 0.08);
-  -webkit-backdrop-filter: blur(32px) saturate(1.75);
-  backdrop-filter: blur(32px) saturate(1.75);
+  -webkit-backdrop-filter: blur(20px) saturate(1.55);
+  backdrop-filter: blur(20px) saturate(1.55);
   transition: background 900ms ease, border-color 900ms ease, box-shadow 240ms ease;
 }
 .dark nav .glass-nav {
-  background: linear-gradient(145deg, rgb(15 20 29 / 0.14), rgb(18 25 35 / 0.085));
+  background: linear-gradient(145deg, rgb(15 20 29 / 0.11), rgb(18 25 35 / 0.065));
   border-color: rgb(255 255 255 / 0.15);
   box-shadow:
     0 14px 38px rgb(0 0 0 / 0.22),
@@ -692,24 +703,24 @@ nav .glass-nav.is-scrolled {
     inset 0 -1px 0 rgb(255 255 255 / 0.04);
 }
 nav .glass-panel {
-  background: linear-gradient(145deg, rgb(246 250 255 / 0.12), rgb(239 246 253 / 0.075));
+  background: linear-gradient(145deg, rgb(246 250 255 / 0.085), rgb(239 246 253 / 0.055));
   border-color: rgb(255 255 255 / 0.46);
-  -webkit-backdrop-filter: blur(30px) saturate(1.7);
-  backdrop-filter: blur(30px) saturate(1.7);
+  -webkit-backdrop-filter: blur(20px) saturate(1.5);
+  backdrop-filter: blur(20px) saturate(1.5);
 }
 .dark nav .glass-panel {
-  background: linear-gradient(145deg, rgb(15 20 29 / 0.2), rgb(18 25 35 / 0.14));
+  background: linear-gradient(145deg, rgb(15 20 29 / 0.15), rgb(18 25 35 / 0.1));
   border-color: rgb(255 255 255 / 0.15);
 }
 nav .glass-control {
-  background: rgb(248 251 255 / 0.075);
+  background: rgb(248 251 255 / 0.06);
   border-color: rgb(255 255 255 / 0.38);
   box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.48), 0 4px 12px rgb(48 65 88 / 0.035);
-  -webkit-backdrop-filter: blur(24px) saturate(1.55);
-  backdrop-filter: blur(24px) saturate(1.55);
+  -webkit-backdrop-filter: blur(18px) saturate(1.45);
+  backdrop-filter: blur(18px) saturate(1.45);
 }
 .dark nav .glass-control {
-  background: rgb(15 20 29 / 0.16);
+  background: rgb(15 20 29 / 0.12);
   border-color: rgb(255 255 255 / 0.12);
   box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.1), 0 4px 14px rgb(0 0 0 / 0.1);
 }
@@ -743,21 +754,21 @@ nav a.glass-control { min-height: 44px; }
 
 /* Transparent light surfaces allow the ambient field to tint the frosted material. */
 .glass-card {
-  background: linear-gradient(140deg, rgb(246 250 255 / 0.17), rgb(238 245 252 / 0.105) 54%, rgb(231 239 250 / 0.075));
+  background: linear-gradient(140deg, rgb(246 250 255 / 0.115), rgb(238 245 252 / 0.075) 54%, rgb(231 239 250 / 0.05));
   border-color: rgb(161 183 207 / 0.48);
   box-shadow:
     inset 0 1px 0 rgb(255 255 255 / 0.66),
     inset 0 -1px 0 rgb(139 164 192 / 0.1),
     0 12px 36px rgb(60 85 120 / 0.085),
     0 2px 8px rgb(60 85 120 / 0.035);
-  -webkit-backdrop-filter: blur(26px) saturate(1.65);
-  backdrop-filter: blur(26px) saturate(1.65);
+  -webkit-backdrop-filter: blur(20px) saturate(1.48);
+  backdrop-filter: blur(20px) saturate(1.48);
 }
 .glass-card::before {
   background: linear-gradient(128deg, rgb(255 255 255 / 0.26), transparent 31%, transparent 74%, rgb(190 213 237 / 0.1));
 }
 .dark .glass-card {
-  background: linear-gradient(142deg, rgb(39 49 63 / 0.3), rgb(22 27 36 / 0.22) 55%, rgb(28 31 46 / 0.18));
+  background: linear-gradient(142deg, rgb(39 49 63 / 0.22), rgb(22 27 36 / 0.16) 55%, rgb(28 31 46 / 0.13));
   border-color: rgb(255 255 255 / 0.15);
   box-shadow:
     inset 0 1px 0 rgb(255 255 255 / 0.16),
@@ -768,10 +779,10 @@ nav a.glass-control { min-height: 44px; }
 .dark .glass-card::before {
   background: linear-gradient(128deg, rgb(255 255 255 / 0.12), transparent 32%, transparent 75%, rgb(113 184 205 / 0.06));
 }
-.experience-stop.glass-card { background: linear-gradient(145deg, rgb(246 250 255 / 0.19), rgb(233 242 251 / 0.1)); }
-.dark .experience-stop.glass-card { background: linear-gradient(145deg, rgb(39 49 63 / 0.32), rgb(22 27 36 / 0.24)); }
-.experience-stop.is-active { background: linear-gradient(145deg, hsl(var(--primary) / 0.13), rgb(237 245 253 / 0.18)); }
-.dark .experience-stop.is-active { background: linear-gradient(145deg, hsl(var(--primary) / 0.15), rgb(22 27 36 / 0.35)); }
+.experience-stop.glass-card { background: linear-gradient(145deg, rgb(246 250 255 / 0.13), rgb(233 242 251 / 0.065)); }
+.dark .experience-stop.glass-card { background: linear-gradient(145deg, rgb(39 49 63 / 0.24), rgb(22 27 36 / 0.17)); }
+.experience-stop.is-active { background: linear-gradient(145deg, hsl(var(--primary) / 0.11), rgb(237 245 253 / 0.12)); }
+.dark .experience-stop.is-active { background: linear-gradient(145deg, hsl(var(--primary) / 0.13), rgb(22 27 36 / 0.22)); }
 
 /* Match anchor destinations to the fixed header while preserving native link behavior. */
 #home, #about, #experience, #projects, #skills, #education, #contact { scroll-margin-top: 6.25rem; }
